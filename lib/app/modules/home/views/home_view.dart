@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/app/modules/home/views/content/about.dart';
 import '../../../core/constant/color_constant.dart';
 import '../controllers/home_controller.dart';
 import 'content/home..dart';
@@ -27,9 +28,7 @@ class HomeView extends GetView<HomeController> {
             Center(
               child: Text("2"),
             ),
-            Center(
-              child: Text("3"),
-            ),
+            About(),
             Center(
               child: Text("4"),
             ),
