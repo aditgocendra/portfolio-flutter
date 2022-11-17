@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/modules/home/views/content/about.dart';
+import 'package:portfolio/app/modules/home/views/content/education.dart';
 import 'package:portfolio/app/modules/home/views/content/recent_work.dart';
 import '../../../core/constant/color_constant.dart';
 import '../controllers/home_controller.dart';
@@ -27,9 +28,7 @@ class HomeView extends GetView<HomeController> {
           children: [
             const Home(),
             const About(),
-            const Center(
-              child: Text("4"),
-            ),
+            const Education(),
             RecentWork(),
             const Center(
               child: Text("5"),
