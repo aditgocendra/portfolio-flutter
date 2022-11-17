@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/modules/home/views/content/about.dart';
+import 'package:portfolio/app/modules/home/views/content/recent_work.dart';
 import '../../../core/constant/color_constant.dart';
 import '../controllers/home_controller.dart';
 import 'content/home..dart';
@@ -22,17 +23,15 @@ class HomeView extends GetView<HomeController> {
           right: 18,
         ),
         child: TabBarView(
-          controller: controller.tabController,
-          children: const [
-            Home(),
-            Center(
-              child: Text("2"),
-            ),
-            About(),
-            Center(
+          controller: controller.tabNavBarController,
+          children: [
+            const Home(),
+            const About(),
+            const Center(
               child: Text("4"),
             ),
-            Center(
+            RecentWork(),
+            const Center(
               child: Text("5"),
             ),
           ],
@@ -81,19 +80,19 @@ class AppBarCustom extends StatelessWidget {
               indicatorColor: Colors.black,
               labelColor: primaryColor,
               unselectedLabelColor: Colors.white,
-              controller: controller.tabController,
+              controller: controller.tabNavBarController,
               tabs: const [
                 Tab(
                   text: "Home",
-                ),
-                Tab(
-                  text: "Recent Work",
                 ),
                 Tab(
                   text: "About",
                 ),
                 Tab(
                   text: "Education",
+                ),
+                Tab(
+                  text: "Recent Work",
                 ),
                 Tab(
                   text: "Contact",
