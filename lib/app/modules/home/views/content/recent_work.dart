@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/constant/value.dart';
+import '../../../../core/constant/values.dart';
 import '../../../../core/constant/color_constant.dart';
 import '../../controllers/home_controller.dart';
 
 class RecentWork extends StatelessWidget {
-  RecentWork({super.key});
-
-  final controller = Get.find<HomeController>();
+  const RecentWork({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<HomeController>();
     return Padding(
       padding: const EdgeInsets.only(right: 32),
       child: Column(

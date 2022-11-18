@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/app/modules/home/controllers/home_controller.dart';
 import '../../../../core/constant/color_constant.dart';
 
 class Home extends StatelessWidget {
@@ -12,11 +14,11 @@ class Home extends StatelessWidget {
       children: [
         // Content
         Row(
-          children: const [
+          children: [
             Expanded(
               child: LeftContent(),
             ),
-            Expanded(
+            const Expanded(
               child: RighContent(),
             )
           ],
@@ -43,9 +45,11 @@ class RighContent extends StatelessWidget {
 }
 
 class LeftContent extends StatelessWidget {
-  const LeftContent({
+  LeftContent({
     Key? key,
   }) : super(key: key);
+
+  final controller = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +89,9 @@ class LeftContent extends StatelessWidget {
         Row(
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                controller.tabNavBarController.index = 3;
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryColor,
                 shape: const StadiumBorder(),
@@ -97,7 +103,9 @@ class LeftContent extends StatelessWidget {
               width: 24,
             ),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                controller.tabNavBarController.index = 4;
+              },
               style: OutlinedButton.styleFrom(
                 side: const BorderSide(
                   color: primaryColor,

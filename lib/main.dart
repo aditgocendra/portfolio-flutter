@@ -18,7 +18,7 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Portfolio",
-      initialRoute: AppPages.INITIAL,
+      initialRoute: AppPages.initial,
       getPages: AppPages.routes,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,

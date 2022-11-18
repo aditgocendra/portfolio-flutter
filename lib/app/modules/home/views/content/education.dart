@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/core/constant/color_constant.dart';
+import '../../../../core/constant/color_constant.dart';
 
 class Education extends StatelessWidget {
   const Education({super.key});
@@ -33,7 +33,7 @@ class Education extends StatelessWidget {
               child: ListView(
                 children: [
                   Container(
-                    margin: EdgeInsets.all(32),
+                    margin: const EdgeInsets.all(32),
                     height: 80,
                     decoration: BoxDecoration(
                       color: secondaryLightColor,
@@ -41,7 +41,7 @@ class Education extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.all(32),
+                    margin: const EdgeInsets.all(32),
                     height: 80,
                     decoration: BoxDecoration(
                       color: secondaryLightColor,
@@ -49,7 +49,7 @@ class Education extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.all(32),
+                    margin: const EdgeInsets.all(32),
                     height: 80,
                     decoration: BoxDecoration(
                       color: secondaryLightColor,
@@ -57,7 +57,7 @@ class Education extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.all(32),
+                    margin: const EdgeInsets.all(32),
                     height: 80,
                     decoration: BoxDecoration(
                       color: secondaryLightColor,
