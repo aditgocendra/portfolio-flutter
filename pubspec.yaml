@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   unicons: ^2.1.0
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -24,3 +25,4 @@ flutter:
   assets:
     - assets/images/
     - assets/images/project/
+    - assets/logo/
