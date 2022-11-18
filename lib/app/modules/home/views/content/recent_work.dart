@@ -59,9 +59,9 @@ class RecentWork extends StatelessWidget {
             child: TabBarView(
               controller: controller.tabRecentWorkController,
               children: const [
-                ProjectGrid(itemCount: 8),
-                ProjectGrid(itemCount: 3),
-                ProjectGrid(itemCount: 5),
+                ProjectGrid(listProject: listProjectAndroid),
+                ProjectGrid(listProject: listProjectWebsite),
+                ProjectGrid(listProject: listProjectGames),
               ],
             ),
           ),
@@ -72,8 +72,11 @@ class RecentWork extends StatelessWidget {
 }
 
 class ProjectGrid extends StatelessWidget {
-  final int itemCount;
-  const ProjectGrid({super.key, required this.itemCount});
+  final List<Map<String, dynamic>> listProject;
+  const ProjectGrid({
+    super.key,
+    required this.listProject,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +86,28 @@ class ProjectGrid extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
       ),
-      itemCount: itemCount,
-      itemBuilder: (context, index) => Container(
+      itemCount: listProject.length,
+      itemBuilder: (context, index) => ProjectCard(
+        project: listProject[index],
+      ),
+    );
+  }
+}
+
+class ProjectCard extends StatelessWidget {
+  final Map<String, dynamic> project;
+  const ProjectCard({
+    Key? key,
+    required this.project,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {},
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      child: Container(
         margin: const EdgeInsets.all(36),
         decoration: BoxDecoration(
           color: secondaryPrimaryColor,
@@ -99,13 +122,13 @@ class ProjectGrid extends StatelessWidget {
                 child: Image.asset('assets/images/project/main_market.png'),
               ),
             ),
-            const Align(
+            Align(
               alignment: Alignment.bottomLeft,
               child: Padding(
-                padding: EdgeInsets.all(32.0),
+                padding: const EdgeInsets.all(32.0),
                 child: Text(
-                  'Main Market',
-                  style: TextStyle(
+                  project['name_app'],
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),

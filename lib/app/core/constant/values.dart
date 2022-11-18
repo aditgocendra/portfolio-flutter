@@ -1,10 +1,10 @@
 // List Constant
 
-import 'package:portfolio/app/modules/home/views/content/about.dart';
-import 'package:portfolio/app/modules/home/views/content/contact.dart';
-import 'package:portfolio/app/modules/home/views/content/education.dart';
-import 'package:portfolio/app/modules/home/views/content/home.dart';
-import 'package:portfolio/app/modules/home/views/content/recent_work.dart';
+import '../../modules/home/views/content/about.dart';
+import '../../modules/home/views/content/contact.dart';
+import '../../modules/home/views/content/education.dart';
+import '../../modules/home/views/content/home.dart';
+import '../../modules/home/views/content/recent_work.dart';
 
 const List<Map<String, dynamic>> listMenu = [
   {
@@ -26,6 +26,97 @@ const List<Map<String, dynamic>> listMenu = [
   {
     'menu': 'Contact',
     'content': Contact(),
+  },
+];
+
+const List<Map<String, dynamic>> listProjectAndroid = [
+  {
+    'name_app': 'Main Market',
+    'architecture': 'MVVM',
+    'description': 'this is description',
+    'link_github': null,
+    'publish': true,
+    'link_publish': 'https://google.com',
+    'tech': [
+      {
+        'logo_tech': 'assets/tech_logo/flutter.png',
+        'link_tech': 'https://flutter.com',
+      },
+      {
+        'logo_tech': 'assets/tech_logo/firebase.png',
+        'link_tech': 'https://firebase.com',
+      },
+    ]
+  },
+  {
+    'name_app': 'Shipp',
+    'architecture': 'MVVM',
+    'description': 'this is description',
+    'link_github': 'https://github.com/aditgocendra/shipp',
+    'publish': true,
+    'link_publish': 'https://google.com',
+    'tech': [
+      {
+        'logo_tech': 'assets/tech_logo/flutter.png',
+        'link_tech': 'https://flutter.com',
+      },
+    ]
+  }
+];
+
+const List<Map<String, dynamic>> listProjectWebsite = [
+  {
+    'name_app': 'Klabels',
+    'architecture': 'MVC',
+    'description': 'this is description',
+    'link_github': null,
+    'publish': true,
+    'link_publish': 'https://google.com',
+    'tech': [
+      {
+        'logo_tech': 'assets/tech_logo/flutter.png',
+        'link_tech': 'https://flutter.com',
+      },
+      {
+        'logo_tech': 'assets/tech_logo/firebase.png',
+        'link_tech': 'https://firebase.com',
+      },
+    ]
+  },
+  {
+    'name_app': 'Projectka',
+    'architecture': 'MVC',
+    'description': 'this is description',
+    'link_github': 'https://github.com/aditgocendra/shipp',
+    'publish': true,
+    'link_publish': 'https://google.com',
+    'tech': [
+      {
+        'logo_tech': 'assets/tech_logo/flutter.png',
+        'link_tech': 'https://flutter.com',
+      },
+      {
+        'logo_tech': 'assets/tech_logo/firebase.png',
+        'link_tech': 'https://firebase.com',
+      },
+    ]
+  }
+];
+
+const List<Map<String, dynamic>> listProjectGames = [
+  {
+    'name_app': 'The Maze',
+    'architecture': '-',
+    'description': 'this is description',
+    'link_github': null,
+    'publish': true,
+    'link_publish': 'https://google.com',
+    'tech': [
+      {
+        'logo_tech': 'assets/tech_logo/godot.png',
+        'link_tech': 'https://godot.com',
+      },
+    ]
   },
 ];
 
