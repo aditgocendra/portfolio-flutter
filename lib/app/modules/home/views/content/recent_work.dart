@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/constant/values.dart';
@@ -89,53 +90,90 @@ class ProjectGrid extends StatelessWidget {
       itemCount: listProject.length,
       itemBuilder: (context, index) => ProjectCard(
         project: listProject[index],
+        index: index,
       ),
     );
   }
 }
 
 class ProjectCard extends StatelessWidget {
+  final controller = Get.find<HomeController>();
+
   final Map<String, dynamic> project;
-  const ProjectCard({
+  final int index;
+
+  ProjectCard({
     Key? key,
     required this.project,
+    required this.index,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Fix this later (add list is infinity)
+    controller.listAnimatedProject.add({
+      'hover_text_color': Colors.white,
+      'opacity_image': 0.5,
+    });
+
     return InkWell(
       onTap: () {},
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
+      onHover: (value) {
+        if (value) {
+          controller.listAnimatedProject[index]['hover_text_color'] =
+              primaryColor;
+          controller.listAnimatedProject[index]['opacity_image'] = 0.3;
+          controller.update();
+          return;
+        }
+        controller.listAnimatedProject[index]['hover_text_color'] =
+            Colors.white;
+        controller.listAnimatedProject[index]['opacity_image'] = 0.5;
+        controller.update();
+      },
       child: Container(
         margin: const EdgeInsets.all(36),
         decoration: BoxDecoration(
           color: secondaryPrimaryColor,
           borderRadius: BorderRadius.circular(36),
         ),
-        child: Stack(
-          children: [
-            Opacity(
-              opacity: 0.5,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(36),
-                child: Image.asset('assets/images/project/main_market.png'),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: Text(
-                  project['name_app'],
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+        child: GetBuilder(
+          init: controller,
+          builder: (_) {
+            return Stack(
+              children: [
+                AnimatedOpacity(
+                  duration: const Duration(milliseconds: 300),
+                  opacity: controller.listAnimatedProject[index]
+                      ['opacity_image'],
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(36),
+                    child: Image.asset('assets/images/project/main_market.png'),
                   ),
                 ),
-              ),
-            )
-          ],
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(32.0),
+                    child: AnimatedDefaultTextStyle(
+                      duration: const Duration(milliseconds: 300),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: controller.listAnimatedProject[index]
+                            ['hover_text_color'],
+                      ),
+                      child: Text(
+                        project['name_app'],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            );
+          },
         ),
       ),
     );
