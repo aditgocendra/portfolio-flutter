@@ -15,6 +15,7 @@ dependencies:
   unicons: ^2.1.0
   flutter_svg: ^1.1.6
   animated_text_kit: ^4.2.2
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_lints: ^2.0.0
