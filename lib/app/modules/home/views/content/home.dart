@@ -1,6 +1,7 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/modules/home/controllers/home_controller.dart';
+import '../../controllers/home_controller.dart';
 import '../../../../core/constant/color_constant.dart';
 
 class Home extends StatelessWidget {
@@ -56,12 +57,22 @@ class LeftContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Hi There,",
-          style: TextStyle(
-            fontSize: 72,
-            fontWeight: FontWeight.bold,
-            height: 1,
+        SizedBox(
+          height: 96,
+          child: AnimatedTextKit(
+            isRepeatingAnimation: false,
+            onFinished: () => controller.isPlayAnimText.toggle(),
+            animatedTexts: [
+              TypewriterAnimatedText(
+                "Hi There,",
+                speed: const Duration(milliseconds: 300),
+                textStyle: const TextStyle(
+                  fontSize: 96,
+                  fontWeight: FontWeight.bold,
+                  height: 1,
+                ),
+              ),
+            ],
           ),
         ),
         Row(
@@ -69,18 +80,18 @@ class LeftContent extends StatelessWidget {
             Text(
               "I'm ",
               style: TextStyle(
-                fontSize: 52,
+                fontSize: 60,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
               "Aditya Gocendra",
               style: TextStyle(
-                fontSize: 52,
+                fontSize: 60,
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
               ),
-            ),
+            )
           ],
         ),
         const SizedBox(

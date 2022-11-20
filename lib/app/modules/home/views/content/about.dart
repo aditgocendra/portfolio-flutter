@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/modules/home/controllers/home_controller.dart';
+import 'package:portfolio/app/modules/home/controllers/about_controller.dart';
+import 'package:portfolio/app/modules/home/controllers/portfolio_controller.dart';
 import '../../../../core/constant/color_constant.dart';
 import '../../../../core/constant/values.dart';
+import '../../controllers/home_controller.dart';
 
-class About extends StatelessWidget {
+class About extends GetView<AboutController> {
   const About({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<HomeController>();
+    final homeController = Get.find<HomeController>();
+    final portfolioController = Get.find<PortfolioController>();
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -54,9 +57,9 @@ class About extends StatelessWidget {
                             margin: const EdgeInsets.all(32),
                             child: ElevatedButton(
                               onPressed: () {
-                                controller.tabNavBarController.index = 3;
-                                controller.tabRecentWorkController.index =
-                                    index;
+                                homeController.tabNavBarController.index = 3;
+                                portfolioController
+                                    .tabPortfolioController.index = index;
                               },
                               style: ElevatedButton.styleFrom(
                                 shape: const StadiumBorder(),

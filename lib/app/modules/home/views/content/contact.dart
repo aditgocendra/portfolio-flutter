@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/core/utility/style_util.dart';
+import 'package:portfolio/app/modules/home/controllers/contact_controller.dart';
 
 import '../../../../core/constant/values.dart';
 import '../../../../core/utility/url_redirect_util.dart';
 import '../../../../core/constant/color_constant.dart';
 import '../../controllers/home_controller.dart';
 
-class Contact extends StatelessWidget {
+class Contact extends GetView<ContactController> {
   const Contact({super.key});
 
   @override
@@ -27,7 +28,9 @@ class Contact extends StatelessWidget {
           ),
           Expanded(
             flex: 6,
-            child: RightContact(),
+            child: RightContact(
+              controller: controller,
+            ),
           ),
         ],
       ),
@@ -36,11 +39,11 @@ class Contact extends StatelessWidget {
 }
 
 class RightContact extends StatelessWidget {
-  RightContact({
+  final ContactController controller;
+  const RightContact({
+    required this.controller,
     Key? key,
   }) : super(key: key);
-
-  final controller = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../controllers/education_controller.dart';
 import '../../../../core/constant/color_constant.dart';
 
-class Education extends StatelessWidget {
+class Education extends GetView<EducationController> {
   const Education({super.key});
 
   @override
