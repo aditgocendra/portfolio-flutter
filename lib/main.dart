@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/app/core/binding/initial_binding.dart';
 import 'app/core/constant/color_constant.dart';
 
 import 'app/routes/app_pages.dart';
@@ -20,6 +21,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Portfolio",
       initialRoute: AppPages.initial,
+      initialBinding: InitialBindings(),
       getPages: AppPages.routes,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
