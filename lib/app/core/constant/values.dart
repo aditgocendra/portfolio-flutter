@@ -6,7 +6,7 @@ import '../../modules/home/views/content/about.dart';
 import '../../modules/home/views/content/contact.dart';
 import '../../modules/home/views/content/education.dart';
 import '../../modules/home/views/content/home.dart';
-import '../../modules/home/views/content/recent_work.dart';
+import '../../modules/home/views/content/portfolio.dart';
 
 const List<Map<String, dynamic>> listMenu = [
   {
@@ -22,7 +22,7 @@ const List<Map<String, dynamic>> listMenu = [
     'content': Education(),
   },
   {
-    'menu': 'Recent Work',
+    'menu': 'Portfolio',
     'content': RecentWork(),
   },
   {
