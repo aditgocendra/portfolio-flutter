@@ -1,5 +1,7 @@
 // List Constant
 
+import 'package:unicons/unicons.dart';
+
 import '../../modules/home/views/content/about.dart';
 import '../../modules/home/views/content/contact.dart';
 import '../../modules/home/views/content/education.dart';
@@ -130,6 +132,38 @@ const List<Map<String, dynamic>> listAboutMenu = [
   {
     'assets': 'assets/logo/games.svg',
   },
+];
+
+// Contact
+const List<Map<String, dynamic>> listContact = [
+  {
+    'icon': UniconsLine.whatsapp,
+    'url_redirect': "https://api.whatsapp.com/send?phone=08975778418",
+  },
+  {
+    'icon': UniconsLine.telegram_alt,
+    'url_redirect': "https://web.telegram.org/?legacy=1#/im?p=@aditgocendra",
+  }
+];
+
+// Social Media
+const List<Map<String, dynamic>> listSocialMedia = [
+  {
+    'icon': UniconsLine.instagram,
+    'url_redirect': 'https://www.instagram.com/aditgocendra/',
+  },
+  {
+    'icon': UniconsLine.facebook_f,
+    'url_redirect': 'https://www.facebook.com/HunterProo',
+  },
+  {
+    'icon': UniconsLine.github,
+    'url_redirect': 'https://github.com/aditgocendra',
+  },
+  {
+    'icon': UniconsLine.linkedin,
+    'url_redirect': 'https://www.linkedin.com/in/aditya-gocendra-41bb36236/',
+  }
 ];
 
 // Description

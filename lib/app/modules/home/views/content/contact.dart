@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:unicons/unicons.dart';
+
+import '../../../../core/constant/values.dart';
+import '../../../../core/utility/url_redirect_util.dart';
 import '../../../../core/constant/color_constant.dart';
 
 class Contact extends StatelessWidget {
@@ -37,73 +39,97 @@ class RightContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: secondaryPrimaryColor,
-        borderRadius: BorderRadius.circular(32),
-      ),
-      child: Container(
-        margin: const EdgeInsets.all(32),
-        child: Column(
-          children: [
-            const TextField(
-              decoration: InputDecoration(
-                fillColor: secondaryLightColor,
-                filled: true,
-                hintText: 'Your Email',
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 16,
-                  horizontal: 16,
-                ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(16),
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: secondaryPrimaryColor,
+            borderRadius: BorderRadius.circular(32),
+          ),
+          child: Container(
+            margin: const EdgeInsets.all(32),
+            child: Column(
+              children: [
+                const TextField(
+                  decoration: InputDecoration(
+                    fillColor: secondaryLightColor,
+                    filled: true,
+                    hintText: 'Your Email',
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 16,
+                      horizontal: 24,
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(16),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 32,
-            ),
-            const TextField(
-              minLines: 15,
-              maxLines: 20,
-              keyboardType: TextInputType.multiline,
-              decoration: InputDecoration(
-                fillColor: secondaryLightColor,
-                filled: true,
-                hintText: 'Your Message',
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 16,
-                  horizontal: 16,
+                const SizedBox(
+                  height: 16,
                 ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(24),
+                const TextField(
+                  decoration: InputDecoration(
+                    fillColor: secondaryLightColor,
+                    filled: true,
+                    hintText: 'Subject',
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 16,
+                      horizontal: 24,
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(16),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+                const SizedBox(
+                  height: 32,
                 ),
-                shadowColor: Colors.transparent,
-                minimumSize: const Size.fromHeight(60),
-              ),
-              child: const Text("Send Message"),
+                const TextField(
+                  minLines: 15,
+                  maxLines: 20,
+                  keyboardType: TextInputType.multiline,
+                  decoration: InputDecoration(
+                    fillColor: secondaryLightColor,
+                    filled: true,
+                    hintText: 'Your Message',
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 24,
+                      horizontal: 24,
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(24),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    shadowColor: Colors.transparent,
+                    minimumSize: const Size.fromHeight(60),
+                  ),
+                  child: const Text("Send Message"),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }
@@ -124,44 +150,36 @@ class LeftContact extends StatelessWidget {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                margin: const EdgeInsets.all(20),
-                padding: const EdgeInsets.only(
-                  left: 16,
-                  right: 16,
-                  bottom: 18,
-                  top: 12,
-                ),
-                decoration: BoxDecoration(
-                  color: secondaryLightColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Icon(
-                  UniconsLine.whatsapp,
-                  color: primaryColor,
-                  size: 48,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.all(20),
-                padding: const EdgeInsets.only(
-                  left: 16,
-                  right: 16,
-                  bottom: 18,
-                  top: 12,
-                ),
-                decoration: BoxDecoration(
-                  color: secondaryLightColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Icon(
-                  UniconsLine.telegram_alt,
-                  color: primaryColor,
-                  size: 48,
-                ),
-              )
-            ],
+            children: listContact
+                .map(
+                  (val) => InkWell(
+                    onTap: () {
+                      final Uri url = Uri.parse(
+                        val['url_redirect'],
+                      );
+                      UtilityUrlRedirect().launchInBrowser(url);
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(20),
+                      padding: const EdgeInsets.only(
+                        left: 16,
+                        right: 16,
+                        bottom: 18,
+                        top: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        color: secondaryLightColor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Icon(
+                        val['icon'],
+                        color: primaryColor,
+                        size: 48,
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
           ),
         ),
         const SizedBox(
@@ -172,132 +190,43 @@ class LeftContact extends StatelessWidget {
             color: secondaryPrimaryColor,
             borderRadius: BorderRadius.circular(32),
           ),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    padding: const EdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      bottom: 18,
-                      top: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      color: secondaryLightColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(
-                      UniconsLine.twitter,
-                      color: primaryColor,
-                      size: 48,
-                    ),
+          child: GridView.builder(
+            shrinkWrap: true,
+            primary: false,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+            itemCount: listSocialMedia.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  final Uri url = Uri.parse(
+                    listSocialMedia[index]['url_redirect'],
+                  );
+                  UtilityUrlRedirect().launchInBrowser(
+                    url,
+                  );
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    bottom: 18,
+                    top: 12,
                   ),
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    padding: const EdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      bottom: 18,
-                      top: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      color: secondaryLightColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(
-                      UniconsLine.linkedin,
-                      color: primaryColor,
-                      size: 48,
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    padding: const EdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      bottom: 18,
-                      top: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      color: secondaryLightColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(
-                      UniconsLine.instagram,
-                      color: primaryColor,
-                      size: 48,
-                    ),
+                  decoration: BoxDecoration(
+                    color: secondaryLightColor,
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    padding: const EdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      bottom: 18,
-                      top: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      color: secondaryLightColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(
-                      UniconsLine.facebook_f,
-                      color: primaryColor,
-                      size: 48,
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    padding: const EdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      bottom: 18,
-                      top: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      color: secondaryLightColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(
-                      UniconsLine.youtube,
-                      color: primaryColor,
-                      size: 48,
-                    ),
+                  child: Icon(
+                    listSocialMedia[index]['icon'],
+                    color: primaryColor,
+                    size: 48,
                   ),
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    padding: const EdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      bottom: 18,
-                      top: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      color: secondaryLightColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(
-                      UniconsLine.github,
-                      color: primaryColor,
-                      size: 48,
-                    ),
-                  )
-                ],
-              ),
-            ],
+                ),
+              );
+            },
           ),
         ),
       ],
