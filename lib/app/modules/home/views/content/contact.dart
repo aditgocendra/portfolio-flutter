@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/app/core/utility/style_util.dart';
 
 import '../../../../core/constant/values.dart';
 import '../../../../core/utility/url_redirect_util.dart';
 import '../../../../core/constant/color_constant.dart';
+import '../../controllers/home_controller.dart';
 
 class Contact extends StatelessWidget {
   const Contact({super.key});
@@ -15,11 +18,11 @@ class Contact extends StatelessWidget {
         bottom: 64,
       ),
       child: Row(
-        children: const [
-          Expanded(
+        children: [
+          const Expanded(
             child: LeftContact(),
           ),
-          SizedBox(
+          const SizedBox(
             width: 40,
           ),
           Expanded(
@@ -33,9 +36,11 @@ class Contact extends StatelessWidget {
 }
 
 class RightContact extends StatelessWidget {
-  const RightContact({
+  RightContact({
     Key? key,
   }) : super(key: key);
+
+  final controller = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -50,51 +55,39 @@ class RightContact extends StatelessWidget {
             margin: const EdgeInsets.all(32),
             child: Column(
               children: [
-                const TextField(
-                  decoration: InputDecoration(
-                    fillColor: secondaryLightColor,
-                    filled: true,
-                    hintText: 'Your Email',
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 16,
-                      horizontal: 24,
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(16),
-                      ),
-                    ),
+                TextField(
+                  controller: controller.textEmailEdt,
+                  decoration: UtilityStyle().inputDecorationDefault(
+                    'Your Email',
                   ),
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                const TextField(
-                  decoration: InputDecoration(
-                    fillColor: secondaryLightColor,
-                    filled: true,
-                    hintText: 'Subject',
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 16,
-                      horizontal: 24,
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(16),
-                      ),
-                    ),
+                TextField(
+                  controller: controller.textNameEdt,
+                  decoration: UtilityStyle().inputDecorationDefault(
+                    'Your Name',
+                  ),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                TextField(
+                  controller: controller.textSubjectEdt,
+                  decoration: UtilityStyle().inputDecorationDefault(
+                    'Subject',
                   ),
                 ),
                 const SizedBox(
                   height: 32,
                 ),
-                const TextField(
+                TextField(
                   minLines: 15,
                   maxLines: 20,
                   keyboardType: TextInputType.multiline,
-                  decoration: InputDecoration(
+                  controller: controller.textMessageEdt,
+                  decoration: const InputDecoration(
                     fillColor: secondaryLightColor,
                     filled: true,
                     hintText: 'Your Message',
@@ -114,7 +107,9 @@ class RightContact extends StatelessWidget {
                   height: 24,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.sendEmail();
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
                     shape: RoundedRectangleBorder(
