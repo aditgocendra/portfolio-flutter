@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-
-import '../../../core/utility/sender_mail_dart.dart';
+import 'package:portfolio/app/data/repository/email_sender_repository.dart';
 
 class ContactController extends GetxController {
   final TextEditingController textNameEdt = TextEditingController();
@@ -10,6 +9,9 @@ class ContactController extends GetxController {
   final TextEditingController textMessageEdt = TextEditingController();
 
   List<Map<String, dynamic>> listAnimatedProject = [];
+
+  // Repository
+  final repoEmailSender = Get.find<EmailSenderRepository>();
 
   Future sendEmail() async {
     String name = textNameEdt.text.trim();
@@ -37,12 +39,17 @@ class ContactController extends GetxController {
       return;
     }
 
-    await UtilitySenderMail().emailSender(
-      fromName: name,
-      email: email,
-      subject: subject,
-      message: message,
+    final result = await repoEmailSender.sendEmail(
+      name,
+      email,
+      subject,
+      message,
     );
+
+    if (result.isLeft) {
+      return;
+    }
+
     textNameEdt.clear();
     textEmailEdt.clear();
     textSubjectEdt.clear();

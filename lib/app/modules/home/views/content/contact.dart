@@ -6,7 +6,6 @@ import 'package:portfolio/app/modules/home/controllers/contact_controller.dart';
 import '../../../../core/constant/values.dart';
 import '../../../../core/utility/url_redirect_util.dart';
 import '../../../../core/constant/color_constant.dart';
-import '../../controllers/home_controller.dart';
 
 class Contact extends GetView<ContactController> {
   const Contact({super.key});
