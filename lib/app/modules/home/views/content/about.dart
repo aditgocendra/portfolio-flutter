@@ -14,9 +14,22 @@ class About extends GetView<AboutController> {
   Widget build(BuildContext context) {
     final homeController = Get.find<HomeController>();
     final portfolioController = Get.find<PortfolioController>();
+    final sizeScreenWidth = MediaQuery.of(context).size.width;
+    int crossAxis = 3;
+    double heightIcon = sizeScreenWidth / 10.5;
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    if (sizeScreenWidth < 650) {
+      crossAxis = 1;
+      heightIcon = sizeScreenWidth / 4.5;
+    } else if (sizeScreenWidth < 1000) {
+      crossAxis = 2;
+      heightIcon = sizeScreenWidth / 8.5;
+    } else {
+      crossAxis = 3;
+      heightIcon = sizeScreenWidth / 10.5;
+    }
+
+    return ListView(
       children: [
         const Text(
           about,
@@ -25,66 +38,70 @@ class About extends GetView<AboutController> {
           ),
           textAlign: TextAlign.center,
         ),
-        Padding(
-          padding: const EdgeInsets.only(right: 32),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: listAboutMenu
-                .asMap()
-                .map(
-                  (index, val) => MapEntry(
-                    index,
-                    Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 32),
-                      width: 430,
-                      height: 481,
-                      decoration: BoxDecoration(
-                        color: secondaryPrimaryColor,
-                        borderRadius: BorderRadius.circular(64),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(top: 48),
-                            child: SvgPicture.asset(
-                              val['assets'],
-                              color: primaryColor,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.all(32),
-                            child: ElevatedButton(
-                              onPressed: () {
-                                homeController.tabNavBarController.index = 3;
-                                portfolioController
-                                    .tabPortfolioController.index = index;
-                              },
-                              style: ElevatedButton.styleFrom(
-                                shape: const StadiumBorder(),
-                                minimumSize: const Size.fromHeight(70),
-                                shadowColor: Colors.transparent,
-                                backgroundColor: secondaryLightColor,
-                              ),
-                              child: const Text(
-                                "Checkout",
-                                style: TextStyle(
-                                  color: primaryColor,
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+        const SizedBox(
+          height: 100,
+        ),
+        GridView.builder(
+          padding: EdgeInsets.only(
+            right: sizeScreenWidth > 1000 ? 32 : 0,
+          ),
+          shrinkWrap: true,
+          primary: false,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: crossAxis,
+            childAspectRatio: 1.1,
+            mainAxisSpacing: 24,
+          ),
+          itemCount: listAboutMenu.length,
+          itemBuilder: (context, index) {
+            return Container(
+              margin: const EdgeInsets.symmetric(horizontal: 32),
+              decoration: BoxDecoration(
+                color: secondaryPrimaryColor,
+                borderRadius: BorderRadius.circular(64),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 48),
+                    child: SvgPicture.asset(
+                      listAboutMenu[index]['assets'],
+                      color: primaryColor,
+                      height: heightIcon,
                     ),
                   ),
-                )
-                .values
-                .toList(),
-          ),
-        )
+                  Container(
+                    margin: const EdgeInsets.all(32),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        homeController.tabNavBarController.index = 3;
+                        portfolioController.tabPortfolioController.index =
+                            index;
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        minimumSize: Size.fromHeight(
+                          sizeScreenWidth > 650 ? 70 : 55,
+                        ),
+                        shadowColor: Colors.transparent,
+                        backgroundColor: secondaryLightColor,
+                      ),
+                      child: const Text(
+                        "Checkout",
+                        style: TextStyle(
+                          color: primaryColor,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
+        ),
       ],
     );
   }
