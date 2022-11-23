@@ -11,22 +11,27 @@ import '../../modules/home/views/content/portfolio.dart';
 const List<Map<String, dynamic>> listMenu = [
   {
     'menu': 'Home',
+    'icon': UniconsLine.home,
     'content': Home(),
   },
   {
     'menu': 'About',
+    'icon': UniconsLine.info_circle,
     'content': About(),
   },
   {
     'menu': 'Education',
+    'icon': UniconsLine.book_open,
     'content': Education(),
   },
   {
     'menu': 'Portfolio',
+    'icon': UniconsLine.apps,
     'content': RecentWork(),
   },
   {
     'menu': 'Contact',
+    'icon': UniconsLine.envelopes,
     'content': Contact(),
   },
 ];
