@@ -6,7 +6,7 @@ class HomeController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late TabController tabNavBarController;
 
-  final isPlayAnimText = true.obs;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void onInit() {
