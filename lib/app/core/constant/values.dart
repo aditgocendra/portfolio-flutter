@@ -166,6 +166,28 @@ const List<Map<String, dynamic>> listSocialMedia = [
   }
 ];
 
+// Education
+const List<Map<String, dynamic>> listEducation = [
+  {
+    'from_year': '2017',
+    'end_year': '2021',
+    'institution': 'University Teknokrat Indonesia',
+    'degree': 'Bachelor of Computer Science',
+  },
+  {
+    'from_year': '2014',
+    'end_year': '2017',
+    'institution': 'SMA Negeri 3 Bandar Lampung',
+    'degree': 'Senior High School',
+  },
+  {
+    'from_year': '2011',
+    'end_year': '2014',
+    'institution': 'SMP Negeri 5 Bandar Lampung',
+    'degree': 'Junior High School',
+  },
+];
+
 // Description
 const about =
     'Assalamualaikum, Introduce my name Aditya Gocendra I am usually called Adit.\nI started learning to program an application since 2017, and now I am a freelancer.\nThe software that I usually work on is android applications, games and several times making a website.';
