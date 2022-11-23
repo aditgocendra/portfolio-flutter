@@ -43,10 +43,10 @@ class RecentWork extends StatelessWidget {
             ),
             tabs: const [
               Tab(
-                text: "Android",
+                text: "Website",
               ),
               Tab(
-                text: "Website",
+                text: "Android",
               ),
               Tab(
                 text: "Games",

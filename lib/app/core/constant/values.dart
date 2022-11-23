@@ -129,10 +129,10 @@ const List<Map<String, dynamic>> listProjectGames = [
 
 const List<Map<String, dynamic>> listAboutMenu = [
   {
-    'assets': 'assets/logo/android.svg',
+    'assets': 'assets/logo/website.svg',
   },
   {
-    'assets': 'assets/logo/website.svg',
+    'assets': 'assets/logo/android.svg',
   },
   {
     'assets': 'assets/logo/games.svg',
