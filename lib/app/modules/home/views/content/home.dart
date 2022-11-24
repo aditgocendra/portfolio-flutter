@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/app/core/utility/screen_size_util.dart';
 import '../../controllers/home_controller.dart';
 import '../../../../core/constant/color_constant.dart';
 
@@ -8,8 +9,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sizeScreenWidth = MediaQuery.of(context).size.width;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -18,15 +17,11 @@ class Home extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: LeftContent(
-                sizeScreenWidth: sizeScreenWidth,
-              ),
+              child: LeftContent(),
             ),
-            if (sizeScreenWidth > 1000)
-              Expanded(
-                child: RighContent(
-                  sizeScreenWidth: sizeScreenWidth,
-                ),
+            if (UtilityScreenSize().isLarge(context))
+              const Expanded(
+                child: RighContent(),
               )
           ],
         ),
@@ -36,9 +31,7 @@ class Home extends StatelessWidget {
 }
 
 class RighContent extends StatelessWidget {
-  final double sizeScreenWidth;
   const RighContent({
-    required this.sizeScreenWidth,
     Key? key,
   }) : super(key: key);
 
@@ -54,10 +47,7 @@ class RighContent extends StatelessWidget {
 }
 
 class LeftContent extends StatelessWidget {
-  final double sizeScreenWidth;
-
   LeftContent({
-    required this.sizeScreenWidth,
     Key? key,
   }) : super(key: key);
 
@@ -65,11 +55,13 @@ class LeftContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sizeScreenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: sizeScreenWidth > 1000
+          height: UtilityScreenSize().isLarge(context)
               ? sizeScreenWidth / 16
               : sizeScreenWidth / 8,
           child: Text(
@@ -133,7 +125,7 @@ class LeftContent extends StatelessWidget {
               ),
               OutlinedButton(
                 onPressed: () {
-                  controller.tabNavBarController.index = 4;
+                  controller.tabNavBarController.index = 5;
                 },
                 style: OutlinedButton.styleFrom(
                   side: const BorderSide(
@@ -168,7 +160,7 @@ class LeftContent extends StatelessWidget {
         if (sizeScreenWidth < 550)
           OutlinedButton(
             onPressed: () {
-              controller.tabNavBarController.index = 4;
+              controller.tabNavBarController.index = 5;
             },
             style: OutlinedButton.styleFrom(
               side: const BorderSide(
