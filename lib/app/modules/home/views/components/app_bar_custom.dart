@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/app/core/utility/screen_size_util.dart';
 import 'package:unicons/unicons.dart';
 import '../../../../core/constant/values.dart';
 import '../../../../core/constant/color_constant.dart';
@@ -12,14 +13,13 @@ class AppBarCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sizeScreenWidth = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.only(
-        left: sizeScreenWidth > 1000 ? 56 : 28,
+        left: UtilityScreenSize().isLarge(context) ? 56 : 28,
         top: 20,
         right: 18,
       ),
-      child: sizeScreenWidth > 1000
+      child: UtilityScreenSize().isLarge(context)
           ? MenuHorizontalTop(controller: controller)
           : MenuSideTopbar(controller: controller),
     );
@@ -47,7 +47,7 @@ class MenuHorizontalTop extends StatelessWidget {
         ),
         const Spacer(),
         SizedBox(
-          width: 650,
+          width: 720,
           child: TabBar(
             indicator: const ShapeDecoration(
               shape: UnderlineInputBorder(

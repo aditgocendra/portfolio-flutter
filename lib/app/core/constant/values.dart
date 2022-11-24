@@ -1,5 +1,6 @@
 // List Constant
 
+import 'package:portfolio/app/modules/home/views/content/certification.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../modules/home/views/content/about.dart';
@@ -28,6 +29,11 @@ const List<Map<String, dynamic>> listMenu = [
     'menu': 'Portfolio',
     'icon': UniconsLine.apps,
     'content': RecentWork(),
+  },
+  {
+    'menu': 'Certificate',
+    'icon': UniconsLine.creative_commons_pd,
+    'content': Certification(),
   },
   {
     'menu': 'Contact',
@@ -190,6 +196,30 @@ const List<Map<String, dynamic>> listEducation = [
     'end_year': '2014',
     'institution': 'SMP Negeri 5 Bandar Lampung',
     'degree': 'Junior High School',
+  },
+];
+
+// Certificated
+const List<Map<String, dynamic>> listCertificated = [
+  {
+    'title': 'Flutter Beginner Dicoding',
+    'type': 'training',
+    'image': 'assets/certificated/dicoding/cert_dicoding.png'
+  },
+  {
+    'title': 'Flutter Beginner Prakerja',
+    'type': 'training',
+    'image': 'assets/certificated/dicoding/cert_dicoding.png'
+  },
+  {
+    'title': 'Flutter Beginner Prakerja',
+    'type': 'training',
+    'image': 'assets/certificated/dicoding/cert_dicoding.png'
+  },
+  {
+    'title': 'Flutter Beginner Prakerja',
+    'type': 'training',
+    'image': 'assets/certificated/dicoding/cert_dicoding.png'
   },
 ];
 
