@@ -45,33 +45,59 @@ const List<Map<String, dynamic>> listMenu = [
 const List<Map<String, dynamic>> listProjectAndroid = [
   {
     'name_app': 'Main Market',
-    'architecture': 'MVVM',
-    'description': 'this is description',
+    'icon_project': 'assets/logo/android.svg',
+    'description':
+        'Main market is a marketplace application, created to make it easier for sellers to catalog goods and provide information about stores.',
     'link_github': null,
-    'publish': true,
-    'link_publish': 'https://google.com',
+    'image_asset': 'assets/images/project/main_market.png',
+    'banner_asset': 'assets/images/banner/banner_main_market.png',
+    'link_publish':
+        'https://play.google.com/store/apps/details?id=com.ark.main_market',
     'tech': [
       {
-        'logo_tech': 'assets/tech_logo/flutter.png',
+        'logo_tech': 'assets/logo/flutter.svg',
         'link_tech': 'https://flutter.com',
       },
       {
-        'logo_tech': 'assets/tech_logo/firebase.png',
+        'logo_tech': 'assets/logo/firebase.svg',
         'link_tech': 'https://firebase.com',
       },
     ]
   },
   {
     'name_app': 'Shipp',
-    'architecture': 'MVVM',
-    'description': 'this is description',
-    'link_github': 'https://github.com/aditgocendra/shipp',
-    'publish': true,
-    'link_publish': 'https://google.com',
+    'icon_project': 'assets/logo/android.svg',
+    'description':
+        'Shipp is an application to check shipping costs from various shipping services, this application uses the Rajaongkir API',
+    'link_github': 'https://github.com/aditgocendra/postage_app',
+    'image_asset': 'assets/images/project/shipp.png',
+    'banner_asset': 'assets/images/banner/banner_shipp.png',
+    'link_publish':
+        'https://play.google.com/store/apps/details?id=com.ark.check_postage_app',
     'tech': [
       {
-        'logo_tech': 'assets/tech_logo/flutter.png',
+        'logo_tech': 'assets/logo/flutter.svg',
         'link_tech': 'https://flutter.com',
+      },
+    ]
+  },
+  {
+    'name_app': 'Student Monitoring',
+    'icon_project': 'assets/logo/android.svg',
+    'description':
+        "This application is an application for monitoring children with special needs, which was created to make it easier for parents to develop children's learning.",
+    'link_github': 'https://github.com/aditgocendra/postage_app',
+    'image_asset': 'assets/images/project/student_monitoring.png',
+    'banner_asset': 'assets/images/banner/banner_student_monitoring.png',
+    'link_publish': null,
+    'tech': [
+      {
+        'logo_tech': 'assets/logo/android_native.svg',
+        'link_tech': 'https://flutter.com',
+      },
+      {
+        'logo_tech': 'assets/logo/firebase.svg',
+        'link_tech': 'https://firebase.com',
       },
     ]
   }
@@ -80,36 +106,38 @@ const List<Map<String, dynamic>> listProjectAndroid = [
 const List<Map<String, dynamic>> listProjectWebsite = [
   {
     'name_app': 'Klabels',
-    'architecture': 'MVC',
+    'icon_project': 'assets/logo/website.svg',
     'description': 'this is description',
-    'link_github': null,
-    'publish': true,
-    'link_publish': 'https://google.com',
+    'link_github': 'https://github.com/aditgocendra/kelvin-project',
+    'image_asset': 'assets/images/project/klabels.png',
+    'banner_asset': 'assets/images/banner/banner_klabels.png',
+    'link_publish': 'https://klabels-18583.web.app/',
     'tech': [
       {
-        'logo_tech': 'assets/tech_logo/flutter.png',
+        'logo_tech': 'assets/logo/flutter.svg',
         'link_tech': 'https://flutter.com',
       },
       {
-        'logo_tech': 'assets/tech_logo/firebase.png',
+        'logo_tech': 'assets/logo/firebase.svg',
         'link_tech': 'https://firebase.com',
       },
     ]
   },
   {
     'name_app': 'Projectka',
-    'architecture': 'MVC',
+    'icon_project': 'assets/logo/website.svg',
     'description': 'this is description',
-    'link_github': 'https://github.com/aditgocendra/shipp',
-    'publish': true,
-    'link_publish': 'https://google.com',
+    'link_github': 'https://github.com/aditgocendra/projectka_pos',
+    'image_asset': 'assets/images/project/projectka.png',
+    'banner_asset': 'assets/images/banner/banner_projectka.png',
+    'link_publish': 'https://projectka-5d2fc.firebaseapp.com/',
     'tech': [
       {
-        'logo_tech': 'assets/tech_logo/flutter.png',
+        'logo_tech': 'assets/logo/flutter.svg',
         'link_tech': 'https://flutter.com',
       },
       {
-        'logo_tech': 'assets/tech_logo/firebase.png',
+        'logo_tech': 'assets/logo/firebase.svg',
         'link_tech': 'https://firebase.com',
       },
     ]
@@ -118,15 +146,18 @@ const List<Map<String, dynamic>> listProjectWebsite = [
 
 const List<Map<String, dynamic>> listProjectGames = [
   {
-    'name_app': 'The Maze',
-    'architecture': '-',
-    'description': 'this is description',
-    'link_github': null,
+    'name_app': 'Ninja Rusher',
+    'icon_project': 'assets/logo/games.svg',
+    'description': 'A game with a ninja theme and a world platformer',
+    'link_github': 'https://github.com/aditgocendra/Ninja-Rusher',
     'publish': true,
-    'link_publish': 'https://google.com',
+    'image_asset': 'assets/images/project/ninja_rusher.png',
+    'banner_asset': 'assets/images/banner/banner_ninja_rusher.png',
+    'link_publish':
+        'https://play.google.com/store/apps/details?id=com.arkgames.ninjarusher',
     'tech': [
       {
-        'logo_tech': 'assets/tech_logo/godot.png',
+        'logo_tech': 'assets/logo/godotengine.svg',
         'link_tech': 'https://godot.com',
       },
     ]
