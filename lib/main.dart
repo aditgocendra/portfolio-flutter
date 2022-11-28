@@ -19,7 +19,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Portfolio",
+      title: "Aditya Gocendra",
       initialRoute: AppPages.initial,
       initialBinding: InitialBindings(),
       getPages: AppPages.routes,
