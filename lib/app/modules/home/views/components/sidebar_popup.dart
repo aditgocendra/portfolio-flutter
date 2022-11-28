@@ -42,7 +42,14 @@ class SidebarPopup extends StatelessWidget {
                       return MapEntry(
                         i,
                         ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            controller.tabNavBarController.index = i;
+                            if (controller
+                                .scaffoldKey.currentState!.isDrawerOpen) {
+                              controller.scaffoldKey.currentState!
+                                  .closeDrawer();
+                            }
+                          },
                           leading: Icon(
                             val['icon'],
                             color: indexNavActive == i
