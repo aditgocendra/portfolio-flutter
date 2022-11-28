@@ -1,8 +1,5 @@
-// List Constant
-
-import 'package:portfolio/app/modules/home/views/content/certification.dart';
 import 'package:unicons/unicons.dart';
-
+import '../../modules/home/views/content/certification.dart';
 import '../../modules/home/views/content/about.dart';
 import '../../modules/home/views/content/contact.dart';
 import '../../modules/home/views/content/education.dart';
@@ -233,24 +230,24 @@ const List<Map<String, dynamic>> listEducation = [
 // Certificated
 const List<Map<String, dynamic>> listCertificated = [
   {
-    'title': 'Flutter Beginner Dicoding',
+    'theme': 'Belajar Membuat Aplikasi Flutter Untuk Pemula',
     'type': 'training',
-    'image': 'assets/certificated/dicoding/cert_dicoding.png'
+    'image': 'assets/images/certificated/cert_dicoding.png'
   },
   {
-    'title': 'Flutter Beginner Prakerja',
+    'theme': 'Flutter Beginner Prakerja',
     'type': 'training',
-    'image': 'assets/certificated/dicoding/cert_dicoding.png'
+    'image': 'assets/images/certificated/cert_course_net.png'
   },
   {
-    'title': 'Flutter Beginner Prakerja',
+    'theme': 'Scalable Web Service With Golang',
     'type': 'training',
-    'image': 'assets/certificated/dicoding/cert_dicoding.png'
+    'image': 'assets/images/certificated/cert_hacktiv8.png'
   },
   {
-    'title': 'Flutter Beginner Prakerja',
+    'theme': 'Javascript With API',
     'type': 'training',
-    'image': 'assets/certificated/dicoding/cert_dicoding.png'
+    'image': 'assets/images/certificated/cert_progate.png'
   },
 ];
 
