@@ -19,6 +19,7 @@ dependencies:
   flutter_dotenv: ^5.0.2
   emailjs: ^1.0.0
   either_dart: ^0.3.0
+  pdfx: ^2.3.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -33,5 +34,6 @@ flutter:
     - assets/images/project/
     - assets/images/banner/
     - assets/images/certificated/
+    - assets/pdf/
     - assets/logo/
 
