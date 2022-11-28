@@ -67,7 +67,7 @@ class LeftContent extends StatelessWidget {
           child: Text(
             'Hi There,',
             style: TextStyle(
-              fontSize: sizeScreenWidth > 1000
+              fontSize: UtilityScreenSize().isLarge(context)
                   ? sizeScreenWidth / 16
                   : sizeScreenWidth / 8,
               fontWeight: FontWeight.bold,
@@ -75,16 +75,43 @@ class LeftContent extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          height: sizeScreenWidth > 1000
-              ? sizeScreenWidth / 20
-              : sizeScreenWidth / 10,
-          child: Row(
+        if (UtilityScreenSize().isLarge(context) ||
+            UtilityScreenSize().isMedium(context))
+          SizedBox(
+            height: UtilityScreenSize().isLarge(context)
+                ? sizeScreenWidth / 20
+                : sizeScreenWidth / 10,
+            child: Row(
+              children: [
+                Text(
+                  "I'm ",
+                  style: TextStyle(
+                    fontSize: UtilityScreenSize().isLarge(context)
+                        ? sizeScreenWidth / 32
+                        : sizeScreenWidth / 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "Aditya Gocendra",
+                  style: TextStyle(
+                    fontSize: UtilityScreenSize().isLarge(context)
+                        ? sizeScreenWidth / 32
+                        : sizeScreenWidth / 14,
+                    fontWeight: FontWeight.bold,
+                    color: primaryColor,
+                  ),
+                )
+              ],
+            ),
+          ),
+        if (UtilityScreenSize().isSmall(context))
+          Wrap(
             children: [
               Text(
                 "I'm ",
                 style: TextStyle(
-                  fontSize: sizeScreenWidth > 1000
+                  fontSize: UtilityScreenSize().isLarge(context)
                       ? sizeScreenWidth / 32
                       : sizeScreenWidth / 14,
                   fontWeight: FontWeight.bold,
@@ -93,7 +120,7 @@ class LeftContent extends StatelessWidget {
               Text(
                 "Aditya Gocendra",
                 style: TextStyle(
-                  fontSize: sizeScreenWidth > 1000
+                  fontSize: UtilityScreenSize().isLarge(context)
                       ? sizeScreenWidth / 32
                       : sizeScreenWidth / 14,
                   fontWeight: FontWeight.bold,
@@ -102,11 +129,11 @@ class LeftContent extends StatelessWidget {
               )
             ],
           ),
-        ),
         const SizedBox(
           height: 16,
         ),
-        if (sizeScreenWidth > 550)
+        if (UtilityScreenSize().isMedium(context) ||
+            UtilityScreenSize().isLarge(context))
           Row(
             children: [
               ElevatedButton(
@@ -141,7 +168,7 @@ class LeftContent extends StatelessWidget {
               ),
             ],
           ),
-        if (sizeScreenWidth < 550)
+        if (UtilityScreenSize().isSmall(context))
           ElevatedButton(
             onPressed: () {
               controller.tabNavBarController.index = 3;
@@ -153,11 +180,11 @@ class LeftContent extends StatelessWidget {
             ),
             child: const Text("Portfolio"),
           ),
-        if (sizeScreenWidth < 550)
+        if (UtilityScreenSize().isSmall(context))
           const SizedBox(
             height: 16,
           ),
-        if (sizeScreenWidth < 550)
+        if (UtilityScreenSize().isSmall(context))
           OutlinedButton(
             onPressed: () {
               controller.tabNavBarController.index = 5;
