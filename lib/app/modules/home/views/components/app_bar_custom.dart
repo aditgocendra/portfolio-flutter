@@ -102,12 +102,16 @@ class MenuSideTopbar extends StatelessWidget {
             ),
           ),
         ),
-        const Align(
-          alignment: Alignment.center,
+        Align(
+          alignment: UtilityScreenSize().isVerySmall(context)
+              ? Alignment.centerRight
+              : Alignment.center,
           child: Text(
-            'Aditya Gocendra',
-            style: TextStyle(
-              fontSize: 24,
+            UtilityScreenSize().isVerySmall(context)
+                ? 'Aditya'
+                : 'Aditya Gocendra',
+            style: const TextStyle(
+              fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
