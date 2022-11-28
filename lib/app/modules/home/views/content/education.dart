@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/core/constant/values.dart';
+import 'package:portfolio/app/core/utility/screen_size_util.dart';
 import '../../controllers/education_controller.dart';
 import '../../../../core/constant/color_constant.dart';
 
@@ -9,26 +10,38 @@ class Education extends GetView<EducationController> {
 
   @override
   Widget build(BuildContext context) {
+    if (UtilityScreenSize().isVerySmall(context)) {
+      return Container();
+    }
     return Padding(
-      padding: const EdgeInsets.only(right: 32),
+      padding: EdgeInsets.only(
+        right: UtilityScreenSize().isLarge(context) ? 32 : 0,
+      ),
       child: Stack(
         children: [
-          Align(
-            alignment: Alignment.centerRight,
-            child: Container(
-              width: 1050,
-              height: 760,
-              decoration: BoxDecoration(
-                color: secondaryLightColor,
-                borderRadius: BorderRadius.circular(64),
+          if (UtilityScreenSize().isLarge(context))
+            Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                width: 1050,
+                height: 760,
+                decoration: BoxDecoration(
+                  color: secondaryLightColor,
+                  borderRadius: BorderRadius.circular(64),
+                ),
               ),
             ),
-          ),
           Align(
-            alignment: Alignment.centerLeft,
+            alignment: UtilityScreenSize().isLarge(context)
+                ? Alignment.centerLeft
+                : Alignment.center,
             child: Container(
               width: 870,
-              height: 610,
+              constraints: BoxConstraints(
+                maxHeight: !UtilityScreenSize().isSmall(context)
+                    ? 610
+                    : double.infinity,
+              ),
               decoration: BoxDecoration(
                 color: secondaryPrimaryColor,
                 borderRadius: BorderRadius.circular(64),
@@ -41,8 +54,11 @@ class Education extends GetView<EducationController> {
                     return ListTile(
                       title: Text(
                         val['institution'],
-                        style: const TextStyle(
-                          fontSize: 28,
+                        style: TextStyle(
+                          fontSize: UtilityScreenSize().isSmall(context) ||
+                                  UtilityScreenSize().isVerySmall(context)
+                              ? 20
+                              : 28,
                           color: primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -50,14 +66,22 @@ class Education extends GetView<EducationController> {
                       subtitle: Text(
                         val['degree'],
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: UtilityScreenSize().isSmall(context) ||
+                                  UtilityScreenSize().isVerySmall(context)
+                              ? 12
+                              : 20,
                           color: Colors.grey.shade500,
                           fontStyle: FontStyle.italic,
                         ),
                       ),
                       trailing: Text(
                         val["from_year"] + ' ~ ' + val["end_year"],
-                        style: const TextStyle(fontSize: 18),
+                        style: TextStyle(
+                          fontSize: UtilityScreenSize().isSmall(context) ||
+                                  UtilityScreenSize().isVerySmall(context)
+                              ? 12
+                              : 18,
+                        ),
                       ),
                     );
                   }).toList(),
