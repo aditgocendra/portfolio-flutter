@@ -32,5 +32,6 @@ flutter:
     - assets/images/
     - assets/images/project/
     - assets/images/banner/
+    - assets/images/certificated/
     - assets/logo/
-    - assets/certificated/dicoding/
+
