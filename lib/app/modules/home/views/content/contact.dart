@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/core/utility/style_util.dart';
-import 'package:portfolio/app/modules/home/controllers/contact_controller.dart';
+import 'package:portfolio/app/core/utility/screen_size_util.dart';
 
+import '../../../../core/utility/style_util.dart';
 import '../../../../core/constant/values.dart';
 import '../../../../core/utility/url_redirect_util.dart';
 import '../../../../core/constant/color_constant.dart';
+import '../../controllers/contact_controller.dart';
 
 class Contact extends GetView<ContactController> {
   const Contact({super.key});
@@ -13,18 +14,20 @@ class Contact extends GetView<ContactController> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        right: 32,
+      padding: EdgeInsets.only(
+        right: UtilityScreenSize().isLarge(context) ? 32 : 0,
         bottom: 64,
       ),
       child: Row(
         children: [
-          const Expanded(
-            child: LeftContact(),
-          ),
-          const SizedBox(
-            width: 40,
-          ),
+          if (!UtilityScreenSize().isSmall(context))
+            const Expanded(
+              child: LeftContact(),
+            ),
+          if (!UtilityScreenSize().isSmall(context))
+            const SizedBox(
+              width: 40,
+            ),
           Expanded(
             flex: 6,
             child: RightContact(
@@ -138,15 +141,16 @@ class LeftContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    double sizeScreenWidth = MediaQuery.of(context).size.width;
+    return ListView(
       children: [
         Container(
           decoration: BoxDecoration(
             color: secondaryPrimaryColor,
             borderRadius: BorderRadius.circular(32),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Wrap(
+            alignment: WrapAlignment.center,
             children: listContact
                 .map(
                   (val) => InkWell(
@@ -158,12 +162,19 @@ class LeftContact extends StatelessWidget {
                     },
                     child: Container(
                       margin: const EdgeInsets.all(20),
-                      padding: const EdgeInsets.only(
-                        left: 16,
-                        right: 16,
-                        bottom: 18,
-                        top: 12,
-                      ),
+                      padding: UtilityScreenSize().isLarge(context)
+                          ? const EdgeInsets.only(
+                              left: 16,
+                              right: 16,
+                              bottom: 18,
+                              top: 12,
+                            )
+                          : const EdgeInsets.only(
+                              left: 10,
+                              right: 10,
+                              bottom: 11,
+                              top: 8,
+                            ),
                       decoration: BoxDecoration(
                         color: secondaryLightColor,
                         borderRadius: BorderRadius.circular(20),
@@ -171,7 +182,7 @@ class LeftContact extends StatelessWidget {
                       child: Icon(
                         val['icon'],
                         color: primaryColor,
-                        size: 48,
+                        size: sizeScreenWidth / 40,
                       ),
                     ),
                   ),
@@ -187,44 +198,87 @@ class LeftContact extends StatelessWidget {
             color: secondaryPrimaryColor,
             borderRadius: BorderRadius.circular(32),
           ),
-          child: GridView.builder(
-            shrinkWrap: true,
-            primary: false,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-            ),
-            itemCount: listSocialMedia.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  final Uri url = Uri.parse(
-                    listSocialMedia[index]['url_redirect'],
-                  );
-                  UtilityUrlRedirect().launchInBrowser(
-                    url,
-                  );
-                },
-                child: Container(
-                  margin: const EdgeInsets.all(20),
-                  padding: const EdgeInsets.only(
-                    left: 16,
-                    right: 16,
-                    bottom: 18,
-                    top: 12,
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            children: listSocialMedia
+                .map(
+                  (val) => InkWell(
+                    onTap: () {
+                      final Uri url = Uri.parse(
+                        val['url_redirect'],
+                      );
+                      UtilityUrlRedirect().launchInBrowser(
+                        url,
+                      );
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(20),
+                      padding: UtilityScreenSize().isLarge(context)
+                          ? const EdgeInsets.only(
+                              left: 16,
+                              right: 16,
+                              bottom: 18,
+                              top: 12,
+                            )
+                          : const EdgeInsets.only(
+                              left: 10,
+                              right: 10,
+                              bottom: 11,
+                              top: 8,
+                            ),
+                      decoration: BoxDecoration(
+                        color: secondaryLightColor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Icon(
+                        val['icon'],
+                        color: primaryColor,
+                        size: sizeScreenWidth / 40,
+                      ),
+                    ),
                   ),
-                  decoration: BoxDecoration(
-                    color: secondaryLightColor,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Icon(
-                    listSocialMedia[index]['icon'],
-                    color: primaryColor,
-                    size: 48,
-                  ),
-                ),
-              );
-            },
+                )
+                .toList(),
           ),
+          // child: GridView.builder(
+          //   padding: EdgeInsets.zero,
+          //   shrinkWrap: true,
+          //   primary: false,
+          //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          //     crossAxisCount: 1,
+          //   ),
+          //   itemCount: listSocialMedia.length,
+          //   itemBuilder: (context, index) {
+          //     return InkWell(
+          //       onTap: () {
+          //         final Uri url = Uri.parse(
+          //           listSocialMedia[index]['url_redirect'],
+          //         );
+          //         UtilityUrlRedirect().launchInBrowser(
+          //           url,
+          //         );
+          //       },
+          //       child: Container(
+          //         margin: const EdgeInsets.all(20),
+          //         padding: const EdgeInsets.only(
+          //           left: 16,
+          //           right: 16,
+          //           bottom: 18,
+          //           top: 12,
+          //         ),
+          //         decoration: BoxDecoration(
+          //           color: secondaryLightColor,
+          //           borderRadius: BorderRadius.circular(20),
+          //         ),
+          //         child: Icon(
+          //           listSocialMedia[index]['icon'],
+          //           color: primaryColor,
+          //           size: 48,
+          //         ),
+          //       ),
+          //     );
+          //   },
+          // ),
         ),
       ],
     );
