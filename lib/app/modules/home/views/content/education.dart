@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/core/constant/values.dart';
-import 'package:portfolio/app/core/utility/screen_size_util.dart';
-import '../../controllers/education_controller.dart';
+import '../../../../core/constant/values.dart';
+import '../../../../core/utility/screen_size_util.dart';
 import '../../../../core/constant/color_constant.dart';
+import '../../controllers/education_controller.dart';
 
 class Education extends GetView<EducationController> {
   const Education({super.key});
