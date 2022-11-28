@@ -29,4 +29,12 @@ class UtilityScreenSize {
     }
     return false;
   }
+
+  bool isVerySmall(BuildContext context) {
+    final sizeScreenWidth = MediaQuery.of(context).size.width;
+    if (sizeScreenWidth < 300) {
+      return true;
+    }
+    return false;
+  }
 }
