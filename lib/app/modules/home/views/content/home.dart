@@ -39,8 +39,8 @@ class RighContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Image.asset(
-        'assets/images/image_profile.png',
-        width: 320,
+        'assets/images/profile_picture.png',
+        width: 400,
       ),
     );
   }
