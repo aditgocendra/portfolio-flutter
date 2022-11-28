@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/core/utility/screen_size_util.dart';
-import 'package:portfolio/app/modules/home/controllers/certification_controller.dart';
+import 'package:pdfx/pdfx.dart';
+import '../../../../core/utility/screen_size_util.dart';
+import '../../controllers/certification_controller.dart';
 import '../../../../core/constant/values.dart';
 
 class Certification extends GetView<CertificationController> {
@@ -41,7 +42,17 @@ class Certification extends GetView<CertificationController> {
           'opacity_image': 1,
         });
         return InkWell(
-          onTap: () {},
+          onTap: () {
+            controller.pdfController = PdfController(
+              document: PdfDocument.openAsset(listCertificated[index]['pdf']),
+            );
+            showDialog(
+              context: context,
+              builder: (context) => DialogDetailCert(
+                pdfController: controller.pdfController,
+              ),
+            );
+          },
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
           onHover: (value) {
@@ -97,6 +108,29 @@ class Certification extends GetView<CertificationController> {
           ),
         );
       },
+    );
+  }
+}
+
+class DialogDetailCert extends StatelessWidget {
+  final PdfController pdfController;
+  const DialogDetailCert({
+    required this.pdfController,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      child: SizedBox(
+        width: 1280,
+        height: 700,
+        child: PdfView(
+          scrollDirection: Axis.vertical,
+          controller: pdfController,
+        ),
+      ),
     );
   }
 }
