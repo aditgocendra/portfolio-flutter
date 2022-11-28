@@ -23,7 +23,7 @@ const List<Map<String, dynamic>> listMenu = [
     'content': Education(),
   },
   {
-    'menu': 'Portfolio',
+    'menu': 'Project',
     'icon': UniconsLine.apps,
     'content': RecentWork(),
   },

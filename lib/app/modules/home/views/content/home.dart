@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/core/utility/screen_size_util.dart';
+import '../../../../core/utility/screen_size_util.dart';
 import '../../controllers/home_controller.dart';
 import '../../../../core/constant/color_constant.dart';
 
@@ -145,7 +145,7 @@ class LeftContent extends StatelessWidget {
                   shape: const StadiumBorder(),
                   minimumSize: const Size(225, 60),
                 ),
-                child: const Text("Portfolio"),
+                child: const Text("Project"),
               ),
               const SizedBox(
                 width: 24,
