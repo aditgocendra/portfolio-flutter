@@ -232,22 +232,26 @@ const List<Map<String, dynamic>> listCertificated = [
   {
     'theme': 'Belajar Membuat Aplikasi Flutter Untuk Pemula',
     'type': 'training',
-    'image': 'assets/images/certificated/cert_dicoding.png'
+    'image': 'assets/images/certificated/cert_dicoding.png',
+    'pdf': 'assets/pdf/cert_dicoding.pdf'
   },
   {
     'theme': 'Flutter Beginner Prakerja',
     'type': 'training',
-    'image': 'assets/images/certificated/cert_course_net.png'
+    'image': 'assets/images/certificated/cert_course_net.png',
+    'pdf': 'assets/pdf/cert_flutter_beginner.pdf'
   },
   {
     'theme': 'Scalable Web Service With Golang',
     'type': 'training',
-    'image': 'assets/images/certificated/cert_hacktiv8.png'
+    'image': 'assets/images/certificated/cert_hacktiv8.png',
+    'pdf': 'assets/pdf/cert_scalable_web_service.pdf'
   },
   {
     'theme': 'Javascript With API',
     'type': 'training',
-    'image': 'assets/images/certificated/cert_progate.png'
+    'image': 'assets/images/certificated/cert_progate.png',
+    'pdf': 'assets/pdf/cert_javascript_with_api.pdf'
   },
 ];
 
