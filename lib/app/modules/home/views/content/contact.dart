@@ -22,6 +22,7 @@ class Contact extends GetView<ContactController> {
         children: [
           if (!UtilityScreenSize().isSmall(context))
             const Expanded(
+              flex: 1,
               child: LeftContact(),
             ),
           if (!UtilityScreenSize().isSmall(context))
@@ -49,7 +50,7 @@ class RightContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Container(
           decoration: BoxDecoration(
@@ -240,45 +241,6 @@ class LeftContact extends StatelessWidget {
                 )
                 .toList(),
           ),
-          // child: GridView.builder(
-          //   padding: EdgeInsets.zero,
-          //   shrinkWrap: true,
-          //   primary: false,
-          //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //     crossAxisCount: 1,
-          //   ),
-          //   itemCount: listSocialMedia.length,
-          //   itemBuilder: (context, index) {
-          //     return InkWell(
-          //       onTap: () {
-          //         final Uri url = Uri.parse(
-          //           listSocialMedia[index]['url_redirect'],
-          //         );
-          //         UtilityUrlRedirect().launchInBrowser(
-          //           url,
-          //         );
-          //       },
-          //       child: Container(
-          //         margin: const EdgeInsets.all(20),
-          //         padding: const EdgeInsets.only(
-          //           left: 16,
-          //           right: 16,
-          //           bottom: 18,
-          //           top: 12,
-          //         ),
-          //         decoration: BoxDecoration(
-          //           color: secondaryLightColor,
-          //           borderRadius: BorderRadius.circular(20),
-          //         ),
-          //         child: Icon(
-          //           listSocialMedia[index]['icon'],
-          //           color: primaryColor,
-          //           size: 48,
-          //         ),
-          //       ),
-          //     );
-          //   },
-          // ),
         ),
       ],
     );
