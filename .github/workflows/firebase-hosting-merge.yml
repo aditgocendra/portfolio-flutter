@@ -18,8 +18,8 @@ jobs:
 
       - run: flutter pub get
 
-      - name: 'Create Env File'
-      - run : |
+      
+      - run : 
           touch .env
           echo "${{ secrets.ENV_FILE }}" >> .env
           cat .env
