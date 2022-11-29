@@ -47,6 +47,7 @@ class Contact extends GetView<ContactController> {
             flex: 5,
             child: Container(
               color: Colors.red,
+              child: RightContact(controller: controller),
             ),
           )
         ],
