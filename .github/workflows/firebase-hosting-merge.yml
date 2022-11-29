@@ -17,6 +17,13 @@ jobs:
           channel: "stable"
 
       - run: flutter pub get
+
+      - name: 'Create Env File'
+      - run : |
+          touch .env
+          echo "${{ secrets.ENV_FILE }}" >> .env
+          cat .env
+      
       - run: flutter build web --web-renderer html --release
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
