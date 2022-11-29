@@ -19,33 +19,35 @@ class Contact extends GetView<ContactController> {
         bottom: 64,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // if (!UtilityScreenSize().isSmall(context))
-          //   const Expanded(
-          //     flex: 1,
-          //     child: LeftContact(),
-          //   ),
-          // if (!UtilityScreenSize().isSmall(context))
-          //   const SizedBox(
-          //     width: 40,
-          //   ),
-          // Expanded(
-          //   flex: 5,
-          //   child: RightContact(
-          //     controller: controller,
-          //   ),
-          // ),
-          Expanded(
-            child: Container(
-              color: Colors.blue,
+          if (!UtilityScreenSize().isSmall(context))
+            const Expanded(
+              flex: 1,
+              child: LeftContact(),
             ),
-          ),
+          if (!UtilityScreenSize().isSmall(context))
+            const SizedBox(
+              width: 40,
+            ),
           Expanded(
             flex: 5,
-            child: Container(
-              color: Colors.red,
+            child: RightContact(
+              controller: controller,
             ),
-          )
+          ),
+          // Expanded(
+          //   child: Container(
+          //     color: Colors.blue,
+          //   ),
+          // ),
+          // Expanded(
+          //   flex: 5,
+          //   child: Container(
+          //     color: Colors.red,
+          //   ),
+          // )
         ],
       ),
     );
@@ -62,6 +64,8 @@ class RightContact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      shrinkWrap: true,
+      primary: false,
       children: [
         Container(
           decoration: BoxDecoration(
@@ -155,6 +159,8 @@ class LeftContact extends StatelessWidget {
   Widget build(BuildContext context) {
     double sizeScreenWidth = MediaQuery.of(context).size.width;
     return ListView(
+      shrinkWrap: true,
+      primary: false,
       children: [
         Container(
           decoration: BoxDecoration(
