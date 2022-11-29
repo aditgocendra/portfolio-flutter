@@ -37,14 +37,13 @@ class Contact extends GetView<ContactController> {
           //     controller: controller,
           //   ),
           // ),
+          // Expanded(
+          //   child: Container(
+          //     color: Colors.blue,
+          //     child: LeftContact(),
+          //   ),
+          // ),
           Expanded(
-            child: Container(
-              color: Colors.blue,
-              child: LeftContact(),
-            ),
-          ),
-          Expanded(
-            flex: 5,
             child: Container(
               color: Colors.red,
               child: RightContact(controller: controller),
