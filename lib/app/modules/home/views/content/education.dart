@@ -29,6 +29,13 @@ class Education extends GetView<EducationController> {
                   color: secondaryLightColor,
                   borderRadius: BorderRadius.circular(64),
                 ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(64),
+                  child: Image.asset(
+                    'assets/images/photo_education.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           Align(
