@@ -23,7 +23,7 @@ class Contact extends GetView<ContactController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (!UtilityScreenSize().isSmall(context))
-            const Expanded(
+            const Flexible(
               flex: 1,
               child: LeftContact(),
             ),
@@ -31,8 +31,8 @@ class Contact extends GetView<ContactController> {
             const SizedBox(
               width: 40,
             ),
-          Expanded(
-            flex: 5,
+          Flexible(
+            flex: 6,
             child: RightContact(
               controller: controller,
             ),

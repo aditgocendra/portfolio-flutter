@@ -24,7 +24,7 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" >> .env
           cat .env
       
-      - run: flutter build web --web-renderer html
+      - run: flutter build web --web-renderer html --release
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
