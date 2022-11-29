@@ -22,33 +22,21 @@ class Contact extends GetView<ContactController> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // if (!UtilityScreenSize().isSmall(context))
-          //   const Expanded(
-          //     flex: 1,
-          //     child: LeftContact(),
-          //   ),
-          // if (!UtilityScreenSize().isSmall(context))
-          //   const SizedBox(
-          //     width: 40,
-          //   ),
-          // Expanded(
-          //   flex: 5,
-          //   child: RightContact(
-          //     controller: controller,
-          //   ),
-          // ),
-          // Expanded(
-          //   child: Container(
-          //     color: Colors.blue,
-          //     child: LeftContact(),
-          //   ),
-          // ),
-          Expanded(
-            child: Container(
-              color: Colors.red,
-              child: RightContact(controller: controller),
+          if (!UtilityScreenSize().isSmall(context))
+            const Expanded(
+              flex: 1,
+              child: LeftContact(),
             ),
-          )
+          if (!UtilityScreenSize().isSmall(context))
+            const SizedBox(
+              width: 40,
+            ),
+          Expanded(
+            flex: 5,
+            child: RightContact(
+              controller: controller,
+            ),
+          ),
         ],
       ),
     );
