@@ -53,11 +53,9 @@ const List<Map<String, dynamic>> listProjectAndroid = [
     'tech': [
       {
         'logo_tech': 'assets/logo/flutter.svg',
-        'link_tech': 'https://flutter.com',
       },
       {
         'logo_tech': 'assets/logo/firebase.svg',
-        'link_tech': 'https://firebase.com',
       },
     ]
   },
@@ -74,7 +72,42 @@ const List<Map<String, dynamic>> listProjectAndroid = [
     'tech': [
       {
         'logo_tech': 'assets/logo/flutter.svg',
-        'link_tech': 'https://flutter.com',
+      },
+    ]
+  },
+  {
+    'name_app': 'Atur Uang',
+    'icon_project': 'assets/logo/android.svg',
+    'description':
+        "This application can be used to help manage daily finances, income and expenditure of users. Users can also print income and expense reports each month.",
+    'link_github': 'https://github.com/aditgocendra/atur_uang',
+    'image_asset': 'assets/images/project/atur_uang.png',
+    'banner_asset': 'assets/images/banner/banner_atur_uang.png',
+    'link_publish': null,
+    'tech': [
+      {
+        'logo_tech': 'assets/logo/flutter.svg',
+      },
+    ]
+  },
+  {
+    'name_app': 'Attendance App',
+    'icon_project': 'assets/logo/android.svg',
+    'description':
+        "This application is a presence application for employees at a cafe, using the haversine and euclidean distance algorithms to calculate the user's distance and the specified location for attendance. Administrators can define hours and locations for attendance. Administrators can also choose which algorithm to use in the application.",
+    'link_github': 'https://github.com/aditgocendra/attendance_app',
+    'image_asset': 'assets/images/project/attendance_app.png',
+    'banner_asset': 'assets/images/banner/banner_attendance_app.png',
+    'link_publish': null,
+    'tech': [
+      {
+        'logo_tech': 'assets/logo/android_native.svg',
+      },
+      {
+        'logo_tech': 'assets/logo/java.svg',
+      },
+      {
+        'logo_tech': 'assets/logo/firebase.svg',
       },
     ]
   },
@@ -83,18 +116,19 @@ const List<Map<String, dynamic>> listProjectAndroid = [
     'icon_project': 'assets/logo/android.svg',
     'description':
         "This application is an application for monitoring children with special needs, which was created to make it easier for parents to develop children's learning.",
-    'link_github': 'https://github.com/aditgocendra/postage_app',
+    'link_github': 'https://github.com/aditgocendra/student_monitoring',
     'image_asset': 'assets/images/project/student_monitoring.png',
     'banner_asset': 'assets/images/banner/banner_student_monitoring.png',
     'link_publish': null,
     'tech': [
       {
         'logo_tech': 'assets/logo/android_native.svg',
-        'link_tech': 'https://flutter.com',
+      },
+      {
+        'logo_tech': 'assets/logo/java.svg',
       },
       {
         'logo_tech': 'assets/logo/firebase.svg',
-        'link_tech': 'https://firebase.com',
       },
     ]
   }
@@ -104,7 +138,8 @@ const List<Map<String, dynamic>> listProjectWebsite = [
   {
     'name_app': 'Klabels',
     'icon_project': 'assets/logo/website.svg',
-    'description': 'this is description',
+    'description':
+        'This application is a sales application and stock inventory at a store. there are several roles such as super admin, owner, and cashier, each role can only access features that have been set according to the rules of the role that has been set.',
     'link_github': 'https://github.com/aditgocendra/kelvin-project',
     'image_asset': 'assets/images/project/klabels.png',
     'banner_asset': 'assets/images/banner/banner_klabels.png',
@@ -112,18 +147,17 @@ const List<Map<String, dynamic>> listProjectWebsite = [
     'tech': [
       {
         'logo_tech': 'assets/logo/flutter.svg',
-        'link_tech': 'https://flutter.com',
       },
       {
         'logo_tech': 'assets/logo/firebase.svg',
-        'link_tech': 'https://firebase.com',
       },
     ]
   },
   {
     'name_app': 'Projectka',
     'icon_project': 'assets/logo/website.svg',
-    'description': 'this is description',
+    'description':
+        'Applications selling goods such as cashier, users can manage transactions, manage users, manage products.',
     'link_github': 'https://github.com/aditgocendra/projectka_pos',
     'image_asset': 'assets/images/project/projectka.png',
     'banner_asset': 'assets/images/banner/banner_projectka.png',
@@ -131,11 +165,9 @@ const List<Map<String, dynamic>> listProjectWebsite = [
     'tech': [
       {
         'logo_tech': 'assets/logo/flutter.svg',
-        'link_tech': 'https://flutter.com',
       },
       {
         'logo_tech': 'assets/logo/firebase.svg',
-        'link_tech': 'https://firebase.com',
       },
     ]
   }
@@ -155,7 +187,23 @@ const List<Map<String, dynamic>> listProjectGames = [
     'tech': [
       {
         'logo_tech': 'assets/logo/godotengine.svg',
-        'link_tech': 'https://godot.com',
+      },
+    ]
+  },
+  {
+    'name_app': 'Escape The Maze',
+    'icon_project': 'assets/logo/games.svg',
+    'description':
+        'This game is made using the godot game engine, where the aim of this game is the player has to get out of the maze by avoiding the enemies that will chase him during the game. the enemy in the game will find a way to the player who is looking for a way out and chase him, if the player is caught then the player will lose. To find the path to the player, enemy or NPC using the Jump Point Search and Basic Theta* algorithms as a comparison, if you are interested how the results of the comparison are, you can see it on my YouTube channel :)',
+    'link_github': 'https://github.com/aditgocendra/Escape-The-Maze',
+    'publish': true,
+    'image_asset': 'assets/images/project/escape_the_maze.png',
+    'banner_asset': 'assets/images/banner/banner_escape_the_maze.png',
+    'link_publish':
+        'https://play.google.com/store/apps/details?id=com.arkgames.mazegame',
+    'tech': [
+      {
+        'logo_tech': 'assets/logo/godotengine.svg',
       },
     ]
   },
@@ -188,6 +236,14 @@ const List<Map<String, dynamic>> listContact = [
 // Social Media
 const List<Map<String, dynamic>> listSocialMedia = [
   {
+    'icon': UniconsLine.github,
+    'url_redirect': 'https://github.com/aditgocendra',
+  },
+  {
+    'icon': UniconsLine.linkedin,
+    'url_redirect': 'https://www.linkedin.com/in/aditya-gocendra-41bb36236/',
+  },
+  {
     'icon': UniconsLine.instagram,
     'url_redirect': 'https://www.instagram.com/aditgocendra/',
   },
@@ -196,13 +252,9 @@ const List<Map<String, dynamic>> listSocialMedia = [
     'url_redirect': 'https://www.facebook.com/HunterProo',
   },
   {
-    'icon': UniconsLine.github,
-    'url_redirect': 'https://github.com/aditgocendra',
+    'icon': UniconsLine.youtube,
+    'url_redirect': 'https://www.youtube.com/@gocen4607/featured',
   },
-  {
-    'icon': UniconsLine.linkedin,
-    'url_redirect': 'https://www.linkedin.com/in/aditya-gocendra-41bb36236/',
-  }
 ];
 
 // Education
