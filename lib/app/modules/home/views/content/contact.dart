@@ -20,21 +20,32 @@ class Contact extends GetView<ContactController> {
       ),
       child: Row(
         children: [
-          if (!UtilityScreenSize().isSmall(context))
-            const Expanded(
-              flex: 1,
-              child: LeftContact(),
-            ),
-          if (!UtilityScreenSize().isSmall(context))
-            const SizedBox(
-              width: 40,
-            ),
+          // if (!UtilityScreenSize().isSmall(context))
+          //   const Expanded(
+          //     flex: 1,
+          //     child: LeftContact(),
+          //   ),
+          // if (!UtilityScreenSize().isSmall(context))
+          //   const SizedBox(
+          //     width: 40,
+          //   ),
+          // Expanded(
+          //   flex: 5,
+          //   child: RightContact(
+          //     controller: controller,
+          //   ),
+          // ),
           Expanded(
-            flex: 6,
-            child: RightContact(
-              controller: controller,
+            child: Container(
+              color: Colors.blue,
             ),
           ),
+          Expanded(
+            flex: 5,
+            child: Container(
+              color: Colors.red,
+            ),
+          )
         ],
       ),
     );
