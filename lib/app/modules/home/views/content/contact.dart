@@ -21,16 +21,18 @@ class Contact extends GetView<ContactController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (!UtilityScreenSize().isSmall(context))
-            const Flexible(
+            const Expanded(
               child: LeftContact(),
             ),
           if (!UtilityScreenSize().isSmall(context))
             const SizedBox(
               width: 40,
             ),
-          Flexible(
+          Expanded(
             flex: 6,
-            child: RightContact(controller: controller),
+            child: Container(
+              color: secondaryPrimaryColor,
+            ),
           ),
         ],
       ),
