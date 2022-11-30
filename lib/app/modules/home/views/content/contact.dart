@@ -12,30 +12,24 @@ class Contact extends GetView<ContactController> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        right: UtilityScreenSize().isLarge(context) ? 32 : 0,
-        bottom: 64,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (!UtilityScreenSize().isSmall(context))
-            const Flexible(
-              child: LeftContact(),
-            ),
-          if (!UtilityScreenSize().isSmall(context))
-            const SizedBox(
-              width: 40,
-            ),
-          Flexible(
-            child: RightContact(
-              controller: controller,
-            ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (!UtilityScreenSize().isSmall(context))
+          const Expanded(
+            child: LeftContact(),
           ),
-        ],
-      ),
+        // if (!UtilityScreenSize().isSmall(context))
+        //   const SizedBox(
+        //     width: 40,
+        //   ),
+        Expanded(
+          child: RightContact(
+            controller: controller,
+          ),
+        ),
+      ],
     );
   }
 }
