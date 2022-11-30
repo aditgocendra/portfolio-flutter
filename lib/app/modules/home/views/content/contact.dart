@@ -49,9 +49,6 @@ class Contact extends GetView<ContactController> {
                 Text('test'),
                 TextField(
                   controller: controller.textEmailEdt,
-                  decoration: UtilityStyle().inputDecorationDefault(
-                    'Your Email',
-                  ),
                 ),
               ],
             ),
