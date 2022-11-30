@@ -44,6 +44,14 @@ class Contact extends GetView<ContactController> {
                       'Your Email',
                     ),
                   ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextField(
+                    decoration: UtilityStyle().inputDecorationDefault(
+                      'Your Name',
+                    ),
+                  ),
                 ],
               ),
             ),
