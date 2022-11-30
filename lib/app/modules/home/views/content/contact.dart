@@ -16,19 +16,31 @@ class Contact extends GetView<ContactController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (!UtilityScreenSize().isSmall(context))
-          const Expanded(
-            child: LeftContact(),
-          ),
+        // if (!UtilityScreenSize().isSmall(context))
+        //   const Expanded(
+        //     child: LeftContact(),
+        //   ),
         // if (!UtilityScreenSize().isSmall(context))
         //   const SizedBox(
         //     width: 40,
         //   ),
+        // Expanded(
+        //   child: RightContact(
+        //     controller: controller,
+        //   ),
+        // ),
         Expanded(
-          child: RightContact(
-            controller: controller,
+          flex: 1,
+          child: Container(
+            color: Colors.pink,
           ),
         ),
+        Expanded(
+          flex: 6,
+          child: Container(
+            color: Colors.amberAccent,
+          ),
+        )
       ],
     );
   }
@@ -43,82 +55,80 @@ class RightContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        padding: const EdgeInsets.all(32),
-        decoration: BoxDecoration(
-          color: secondaryPrimaryColor,
-          borderRadius: BorderRadius.circular(32),
-        ),
-        child: Column(
-          children: [
-            TextField(
-              controller: controller.textEmailEdt,
-              decoration: UtilityStyle().inputDecorationDefault(
-                'Your Email',
+    return Container(
+      padding: const EdgeInsets.all(32),
+      decoration: BoxDecoration(
+        color: secondaryPrimaryColor,
+        borderRadius: BorderRadius.circular(32),
+      ),
+      child: Column(
+        children: [
+          TextField(
+            controller: controller.textEmailEdt,
+            decoration: UtilityStyle().inputDecorationDefault(
+              'Your Email',
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          TextField(
+            controller: controller.textNameEdt,
+            decoration: UtilityStyle().inputDecorationDefault(
+              'Your Name',
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          TextField(
+            controller: controller.textSubjectEdt,
+            decoration: UtilityStyle().inputDecorationDefault(
+              'Subject',
+            ),
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          TextField(
+            minLines: 15,
+            maxLines: 20,
+            keyboardType: TextInputType.multiline,
+            controller: controller.textMessageEdt,
+            decoration: const InputDecoration(
+              fillColor: secondaryLightColor,
+              filled: true,
+              hintText: 'Your Message',
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 24,
+                horizontal: 24,
               ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            TextField(
-              controller: controller.textNameEdt,
-              decoration: UtilityStyle().inputDecorationDefault(
-                'Your Name',
-              ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            TextField(
-              controller: controller.textSubjectEdt,
-              decoration: UtilityStyle().inputDecorationDefault(
-                'Subject',
-              ),
-            ),
-            const SizedBox(
-              height: 32,
-            ),
-            TextField(
-              minLines: 15,
-              maxLines: 20,
-              keyboardType: TextInputType.multiline,
-              controller: controller.textMessageEdt,
-              decoration: const InputDecoration(
-                fillColor: secondaryLightColor,
-                filled: true,
-                hintText: 'Your Message',
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 24,
-                  horizontal: 24,
-                ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(24),
-                  ),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(24),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 24,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                controller.sendEmail();
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                shadowColor: Colors.transparent,
-                minimumSize: const Size.fromHeight(60),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              controller.sendEmail();
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
               ),
-              child: const Text("Send Message"),
+              shadowColor: Colors.transparent,
+              minimumSize: const Size.fromHeight(60),
             ),
-          ],
-        ),
+            child: const Text("Send Message"),
+          ),
+        ],
       ),
     );
   }
