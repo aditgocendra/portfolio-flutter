@@ -38,16 +38,6 @@ class Contact extends GetView<ContactController> {
                     controller: controller.textEmailEdt,
                     decoration: InputDecoration(
                       hintText: 'asdsdasda',
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 16,
-                        horizontal: 24,
-                      ),
-                      border: const OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(16),
-                        ),
-                      ),
                     ),
                   ),
                 ],
