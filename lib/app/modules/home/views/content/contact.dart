@@ -12,7 +12,6 @@ class Contact extends GetView<ContactController> {
 
   @override
   Widget build(BuildContext context) {
-    final sizeScreenWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: EdgeInsets.only(
         right: UtilityScreenSize().isSmall(context) ? 0 : 32,
@@ -22,18 +21,15 @@ class Contact extends GetView<ContactController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (!UtilityScreenSize().isSmall(context))
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                maxWidth: sizeScreenWidth / 8,
-                minWidth: 0,
-              ),
-              child: const LeftContact(),
+            const Flexible(
+              child: LeftContact(),
             ),
           if (!UtilityScreenSize().isSmall(context))
             const SizedBox(
               width: 40,
             ),
-          Expanded(
+          Flexible(
+            flex: 6,
             child: RightContact(controller: controller),
           ),
         ],
@@ -51,87 +47,81 @@ class RightContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      primary: false,
-      children: [
-        Container(
-          padding: const EdgeInsets.all(32),
-          decoration: BoxDecoration(
-            color: secondaryPrimaryColor,
-            borderRadius: BorderRadius.circular(32),
+    return Container(
+      padding: const EdgeInsets.all(32),
+      decoration: BoxDecoration(
+        color: secondaryPrimaryColor,
+        borderRadius: BorderRadius.circular(32),
+      ),
+      child: ListView(
+        children: [
+          TextField(
+            controller: controller.textEmailEdt,
+            decoration: UtilityStyle().inputDecorationDefault(
+              'Your Email',
+            ),
           ),
-          child: Column(
-            children: [
-              TextField(
-                controller: controller.textEmailEdt,
-                decoration: UtilityStyle().inputDecorationDefault(
-                  'Your Email',
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              TextField(
-                controller: controller.textNameEdt,
-                decoration: UtilityStyle().inputDecorationDefault(
-                  'Your Name',
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              TextField(
-                controller: controller.textSubjectEdt,
-                decoration: UtilityStyle().inputDecorationDefault(
-                  'Subject',
-                ),
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              TextField(
-                minLines: 15,
-                maxLines: 20,
-                keyboardType: TextInputType.multiline,
-                controller: controller.textMessageEdt,
-                decoration: const InputDecoration(
-                  fillColor: secondaryLightColor,
-                  filled: true,
-                  hintText: 'Your Message',
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: 24,
-                    horizontal: 24,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(24),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  controller.sendEmail();
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: primaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  shadowColor: Colors.transparent,
-                  minimumSize: const Size.fromHeight(60),
-                ),
-                child: const Text("Send Message"),
-              ),
-            ],
+          const SizedBox(
+            height: 16,
           ),
-        )
-      ],
+          TextField(
+            controller: controller.textNameEdt,
+            decoration: UtilityStyle().inputDecorationDefault(
+              'Your Name',
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          TextField(
+            controller: controller.textSubjectEdt,
+            decoration: UtilityStyle().inputDecorationDefault(
+              'Subject',
+            ),
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          TextField(
+            minLines: 15,
+            maxLines: 20,
+            keyboardType: TextInputType.multiline,
+            controller: controller.textMessageEdt,
+            decoration: const InputDecoration(
+              fillColor: secondaryLightColor,
+              filled: true,
+              hintText: 'Your Message',
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 24,
+                horizontal: 24,
+              ),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(24),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              controller.sendEmail();
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              shadowColor: Colors.transparent,
+              minimumSize: const Size.fromHeight(60),
+            ),
+            child: const Text("Send Message"),
+          ),
+        ],
+      ),
     );
   }
 }
