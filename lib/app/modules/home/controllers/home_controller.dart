@@ -10,10 +10,10 @@ class HomeController extends GetxController
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final TextEditingController textNameEdt = TextEditingController();
-  final TextEditingController textEmailEdt = TextEditingController();
-  final TextEditingController textSubjectEdt = TextEditingController();
-  final TextEditingController textMessageEdt = TextEditingController();
+  late TextEditingController textNameEdt;
+  late TextEditingController textEmailEdt;
+  late TextEditingController textSubjectEdt;
+  late TextEditingController textMessageEdt;
 
   // Repository
   final repoEmailSender = Get.find<EmailSenderRepository>();
@@ -68,6 +68,11 @@ class HomeController extends GetxController
   @override
   void onInit() {
     super.onInit();
+
+    textNameEdt = TextEditingController();
+    textEmailEdt = TextEditingController();
+    textSubjectEdt = TextEditingController();
+    textMessageEdt = TextEditingController();
 
     tabNavBarController = TabController(length: listMenu.length, vsync: this);
   }
