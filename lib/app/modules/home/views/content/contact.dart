@@ -36,8 +36,18 @@ class Contact extends GetView<ContactController> {
                 children: [
                   TextField(
                     controller: controller.textEmailEdt,
-                    decoration: UtilityStyle().inputDecorationDefault(
-                      'Your Email',
+                    decoration: InputDecoration(
+                      hintText: 'asdsdasda',
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                        horizontal: 24,
+                      ),
+                      border: const OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(16),
+                        ),
+                      ),
                     ),
                   ),
                 ],
