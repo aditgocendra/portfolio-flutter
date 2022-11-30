@@ -35,9 +35,7 @@ class Contact extends GetView<ContactController> {
               child: Column(
                 children: [
                   Text('asdsadasda'),
-                  TextField(
-                    controller: controller.textEmailEdt,
-                  ),
+                  TextField(),
                 ],
               ),
             ),
