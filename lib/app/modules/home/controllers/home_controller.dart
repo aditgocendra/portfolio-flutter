@@ -52,6 +52,10 @@ class HomeController extends GetxController
     );
 
     if (result.isLeft) {
+      Get.defaultDialog(
+        title: "Try Again",
+        middleText: result.left.message,
+      );
       return;
     }
 
