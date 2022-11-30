@@ -33,6 +33,7 @@ class Contact extends GetView<ContactController> {
           flex: 1,
           child: Container(
             color: Colors.pink,
+            child: LeftContact(),
           ),
         ),
         Expanded(
