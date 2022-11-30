@@ -32,7 +32,11 @@ class Contact extends GetView<ContactController> {
           Expanded(
             flex: 6,
             child: Container(
-              color: secondaryPrimaryColor,
+              padding: const EdgeInsets.all(32),
+              decoration: BoxDecoration(
+                color: secondaryPrimaryColor,
+                borderRadius: BorderRadius.circular(32),
+              ),
               child: Column(
                 children: [
                   TextField(
