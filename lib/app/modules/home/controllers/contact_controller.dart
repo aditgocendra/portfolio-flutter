@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:portfolio/app/data/repository/email_sender_repository.dart';
 
 class ContactController extends GetxController {
-  final TextEditingController textNameEdt = TextEditingController();
-  final TextEditingController textEmailEdt = TextEditingController();
-  final TextEditingController textSubjectEdt = TextEditingController();
-  final TextEditingController textMessageEdt = TextEditingController();
+  late TextEditingController textNameEdt;
+  late TextEditingController textEmailEdt;
+  late TextEditingController textSubjectEdt;
+  late TextEditingController textMessageEdt;
 
   List<Map<String, dynamic>> listAnimatedProject = [];
 
@@ -54,5 +54,24 @@ class ContactController extends GetxController {
     textEmailEdt.clear();
     textSubjectEdt.clear();
     textMessageEdt.clear();
+  }
+
+  @override
+  void onInit() {
+    textNameEdt = TextEditingController();
+    textEmailEdt = TextEditingController();
+    textSubjectEdt = TextEditingController();
+    textMessageEdt = TextEditingController();
+
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    textNameEdt.dispose();
+    textEmailEdt.dispose();
+    textSubjectEdt.dispose();
+    textMessageEdt.dispose();
+    super.onClose();
   }
 }
