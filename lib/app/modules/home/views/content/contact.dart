@@ -35,7 +35,11 @@ class Contact extends GetView<ContactController> {
               child: Column(
                 children: [
                   Text('asdsadasda'),
-                  TextField(),
+                  TextField(
+                    decoration: UtilityStyle().inputDecorationDefault(
+                      'Your Email',
+                    ),
+                  ),
                 ],
               ),
             ),
