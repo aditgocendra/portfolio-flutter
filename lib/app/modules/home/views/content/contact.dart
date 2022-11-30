@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/core/utility/screen_size_util.dart';
-
+import '../../../../core/utility/screen_size_util.dart';
 import '../../../../core/utility/style_util.dart';
 import '../../../../core/constant/values.dart';
 import '../../../../core/utility/url_redirect_util.dart';
@@ -24,7 +23,6 @@ class Contact extends GetView<ContactController> {
         children: [
           if (!UtilityScreenSize().isSmall(context))
             const Flexible(
-              flex: 1,
               child: LeftContact(),
             ),
           if (!UtilityScreenSize().isSmall(context))
@@ -32,7 +30,6 @@ class Contact extends GetView<ContactController> {
               width: 40,
             ),
           Flexible(
-            flex: 6,
             child: RightContact(
               controller: controller,
             ),
