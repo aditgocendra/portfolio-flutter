@@ -29,9 +29,8 @@ class Contact extends GetView<ContactController> {
               width: 40,
             ),
           Expanded(
-            flex: 6,
             child: Container(
-              color: secondaryPrimaryColor,
+              color: primaryColor,
             ),
           ),
         ],
