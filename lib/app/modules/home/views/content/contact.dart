@@ -31,7 +31,7 @@ class Contact extends GetView<ContactController> {
           Expanded(
             flex: 6,
             child: Container(
-              color: secondaryPrimaryColor,
+              color: primaryColor,
               child: Column(
                 children: [
                   TextField(
