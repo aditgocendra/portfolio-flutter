@@ -62,7 +62,7 @@ class ContactController extends GetxController {
     textEmailEdt = TextEditingController();
     textSubjectEdt = TextEditingController();
     textMessageEdt = TextEditingController();
-
+    print('init');
     super.onInit();
   }
 
