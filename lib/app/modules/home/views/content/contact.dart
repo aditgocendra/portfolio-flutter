@@ -12,7 +12,7 @@ class Contact extends GetView<ContactController> {
 
   @override
   Widget build(BuildContext context) {
-    // ContactController ContController = controller;
+    ContactController contController = Get.find<ContactController>();
     return Padding(
       padding: EdgeInsets.only(
         right: UtilityScreenSize().isSmall(context) ? 0 : 32,
@@ -40,6 +40,7 @@ class Contact extends GetView<ContactController> {
               child: Column(
                 children: [
                   TextField(
+                    controller: contController.textEmailEdt,
                     decoration: UtilityStyle().inputDecorationDefault(
                       'Your Email',
                     ),
