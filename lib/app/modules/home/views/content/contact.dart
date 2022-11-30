@@ -52,6 +52,34 @@ class Contact extends GetView<ContactController> {
                       'Your Name',
                     ),
                   ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextField(
+                    decoration: UtilityStyle().inputDecorationDefault(
+                      'Subject',
+                    ),
+                  ),
+                  TextField(
+                    minLines: 15,
+                    maxLines: 20,
+                    keyboardType: TextInputType.multiline,
+                    decoration: const InputDecoration(
+                      fillColor: secondaryLightColor,
+                      filled: true,
+                      hintText: 'Your Message',
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical: 24,
+                        horizontal: 24,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(24),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
