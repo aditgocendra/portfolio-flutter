@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class UtilityStyle {
-  get secondaryLightColor => null;
+import '../constant/color_constant.dart';
 
+class UtilityStyle {
   InputDecoration inputDecorationDefault(String hint) {
     return InputDecoration(
       fillColor: secondaryLightColor,
