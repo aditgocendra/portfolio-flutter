@@ -31,9 +31,16 @@ class Contact extends GetView<ContactController> {
           Expanded(
             flex: 6,
             child: Container(
-              color: primaryColor,
+              color: secondaryPrimaryColor,
               child: Column(
-                children: [Text("asdasda"), TextField()],
+                children: [
+                  TextField(
+                    controller: controller.textEmailEdt,
+                    decoration: UtilityStyle().inputDecorationDefault(
+                      'Your Email',
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
