@@ -60,6 +60,9 @@ class Contact extends GetView<ContactController> {
                       'Subject',
                     ),
                   ),
+                  const SizedBox(
+                    height: 16,
+                  ),
                   TextField(
                     minLines: 15,
                     maxLines: 20,
@@ -79,6 +82,23 @@ class Contact extends GetView<ContactController> {
                         ),
                       ),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // controller.sendEmail();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      shadowColor: Colors.transparent,
+                      minimumSize: const Size.fromHeight(60),
+                    ),
+                    child: const Text("Send Message"),
                   ),
                 ],
               ),
