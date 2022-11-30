@@ -34,11 +34,9 @@ class Contact extends GetView<ContactController> {
               color: primaryColor,
               child: Column(
                 children: [
+                  Text('asdsadasda'),
                   TextField(
                     controller: controller.textEmailEdt,
-                    decoration: InputDecoration(
-                      hintText: 'asdsdasda',
-                    ),
                   ),
                 ],
               ),
