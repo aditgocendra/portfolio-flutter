@@ -38,7 +38,6 @@ class Contact extends GetView<ContactController> {
                 color: secondaryPrimaryColor,
                 borderRadius: BorderRadius.circular(32),
               ),
-              // child: RightContact(),
               child: RightContact(),
             ),
           ),
