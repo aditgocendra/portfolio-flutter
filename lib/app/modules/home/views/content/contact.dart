@@ -40,7 +40,15 @@ class Contact extends GetView<ContactController> {
           flex: 6,
           child: Container(
             color: Colors.amberAccent,
-            child: RightContact(controller: controller),
+            child: ListView(
+              shrinkWrap: true,
+              primary: false,
+              children: [
+                Text('test'),
+                Text('test'),
+                Text('test'),
+              ],
+            ),
           ),
         )
       ],
