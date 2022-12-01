@@ -9,7 +9,7 @@ abstract class EmailSenderRepository {
 }
 
 class EmailSenderRepositoryImpl implements EmailSenderRepository {
-  final emailSenderService = Get.find<MailJSService>();
+  // final emailSenderService = Get.find<MailJSService>();
   @override
   Future<Either<Failure, String>> sendEmail(
     fromName,
@@ -23,12 +23,13 @@ class EmailSenderRepositoryImpl implements EmailSenderRepository {
       subject: subject,
       message: message,
     );
-    final result = await emailSenderService.sendMessage(emailSenderModel);
+    // final result = await emailSenderService.sendMessage(emailSenderModel);
 
-    if (result.isLeft) {
-      return Left(result.left);
-    }
+    // if (result.isLeft) {
+    //   return Left(result.left);
+    // }
 
-    return Right(result.right);
+    // return Right(result.right);
+    return Right('as');
   }
 }
