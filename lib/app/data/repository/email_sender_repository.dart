@@ -9,7 +9,7 @@ abstract class EmailSenderRepository {
 }
 
 class EmailSenderRepositoryImpl implements EmailSenderRepository {
-  // final emailSenderService = Get.find<MailJSService>();
+  final emailSenderService = Get.find<MailJSService>();
   @override
   Future<Either<Failure, String>> sendEmail(
     fromName,
