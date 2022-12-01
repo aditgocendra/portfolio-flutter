@@ -10,54 +10,54 @@ class ContactController extends GetxController {
   TextEditingController textMessageEdt = TextEditingController();
 
   // Repository
-  final repoEmailSender = Get.find<EmailSenderRepository>();
+  // final repoEmailSender = Get.find<EmailSenderRepository>();
 
-  Future sendEmail() async {
-    String name = textNameEdt.text.trim();
-    String email = textEmailEdt.text.trim();
-    String subject = textSubjectEdt.text.trim();
-    String message = textMessageEdt.text.trim();
+  // Future sendEmail() async {
+  //   String name = textNameEdt.text.trim();
+  //   String email = textEmailEdt.text.trim();
+  //   String subject = textSubjectEdt.text.trim();
+  //   String message = textMessageEdt.text.trim();
 
-    if (name.isEmpty) {
-      return;
-    }
+  //   if (name.isEmpty) {
+  //     return;
+  //   }
 
-    if (email.isEmpty) {
-      return;
-    }
+  //   if (email.isEmpty) {
+  //     return;
+  //   }
 
-    if (subject.isEmpty) {
-      return;
-    }
+  //   if (subject.isEmpty) {
+  //     return;
+  //   }
 
-    if (message.isEmpty) {
-      return;
-    }
+  //   if (message.isEmpty) {
+  //     return;
+  //   }
 
-    if (!GetUtils.isEmail(email)) {
-      return;
-    }
+  //   if (!GetUtils.isEmail(email)) {
+  //     return;
+  //   }
 
-    final result = await repoEmailSender.sendEmail(
-      name,
-      email,
-      subject,
-      message,
-    );
+  //   final result = await repoEmailSender.sendEmail(
+  //     name,
+  //     email,
+  //     subject,
+  //     message,
+  //   );
 
-    if (result.isLeft) {
-      Get.defaultDialog(
-        title: "Try Again",
-        middleText: result.left.message,
-      );
-      return;
-    }
+  //   if (result.isLeft) {
+  //     Get.defaultDialog(
+  //       title: "Try Again",
+  //       middleText: result.left.message,
+  //     );
+  //     return;
+  //   }
 
-    textNameEdt.clear();
-    textEmailEdt.clear();
-    textSubjectEdt.clear();
-    textMessageEdt.clear();
-  }
+  //   textNameEdt.clear();
+  //   textEmailEdt.clear();
+  //   textSubjectEdt.clear();
+  //   textMessageEdt.clear();
+  // }
 
   @override
   void onInit() {
