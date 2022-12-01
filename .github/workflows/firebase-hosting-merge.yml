@@ -20,9 +20,9 @@ jobs:
       - run: flutter pub get
 
       - run : 
-          touch .env
+         
           echo "${{ secrets.ENV_FILE }}" >> .env
-          cat .env
+         
       
       - run: flutter build web --web-renderer html --release
 

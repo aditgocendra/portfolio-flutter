@@ -23,13 +23,12 @@ class EmailSenderRepositoryImpl implements EmailSenderRepository {
       subject: subject,
       message: message,
     );
-    // final result = await emailSenderService.sendMessage(emailSenderModel);
+    final result = await emailSenderService.sendMessage(emailSenderModel);
 
-    // if (result.isLeft) {
-    //   return Left(result.left);
-    // }
+    if (result.isLeft) {
+      return Left(result.left);
+    }
 
-    // return Right(result.right);
-    return Right('as');
+    return Right(result.right);
   }
 }
