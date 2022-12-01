@@ -10,10 +10,10 @@ class HomeController extends GetxController
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  late TextEditingController textNameEdt;
-  late TextEditingController textEmailEdt;
-  late TextEditingController textSubjectEdt;
-  late TextEditingController textMessageEdt;
+  TextEditingController textNameEdt = TextEditingController();
+  TextEditingController textEmailEdt = TextEditingController();
+  TextEditingController textSubjectEdt = TextEditingController();
+  TextEditingController textMessageEdt = TextEditingController();
 
   // Repository
   final repoEmailSender = Get.find<EmailSenderRepository>();
