@@ -14,10 +14,6 @@ class HomeBinding extends Bindings {
     Get.lazyPut<HomeController>(
       () => HomeController(),
     );
-    Get.lazyPut<EmailSenderRepository>(
-      () => EmailSenderRepositoryImpl(),
-    );
-
     Get.lazyPut<PortfolioController>(
       () => PortfolioController(),
     );
