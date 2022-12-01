@@ -51,13 +51,13 @@ class RightContact extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  // final controller = Get.find<ContactController>();
+  final controller = Get.find<ContactController>();
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         TextField(
-          // controller: controller.textEmailEdt,
+          controller: controller.textEmailEdt,
           decoration: UtilityStyle().inputDecorationDefault(
             'Your Email',
           ),
