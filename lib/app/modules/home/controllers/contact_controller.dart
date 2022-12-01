@@ -61,7 +61,7 @@ class ContactController extends GetxController {
 
   @override
   void onInit() {
-    textEmailEdt.text = 'setTTT';
+    textEmailEdt.text = 'setTTTasdasda';
     super.onInit();
   }
 }
