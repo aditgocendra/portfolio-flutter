@@ -56,6 +56,10 @@ class RightContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    controller.textNameEdt = TextEditingController();
+    controller.textEmailEdt = TextEditingController();
+    controller.textSubjectEdt = TextEditingController();
+    controller.textMessageEdt = TextEditingController();
     return Column(
       children: [
         TextField(

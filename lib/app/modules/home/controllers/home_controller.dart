@@ -69,11 +69,9 @@ class HomeController extends GetxController
   void onInit() {
     super.onInit();
 
-    textNameEdt = TextEditingController();
-    textEmailEdt = TextEditingController();
-    textSubjectEdt = TextEditingController();
-    textMessageEdt = TextEditingController();
-
-    tabNavBarController = TabController(length: listMenu.length, vsync: this);
+    tabNavBarController = TabController(
+      length: listMenu.length,
+      vsync: this,
+    );
   }
 }
