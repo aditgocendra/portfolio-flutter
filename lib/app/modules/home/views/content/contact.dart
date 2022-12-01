@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/modules/home/controllers/home_controller.dart';
 import '../../../../core/utility/screen_size_util.dart';
 import '../../../../core/utility/style_util.dart';
 import '../../../../core/constant/values.dart';
@@ -52,18 +51,13 @@ class RightContact extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final controller = Get.find<HomeController>();
-
+  final controller = Get.find<ContactController>();
   @override
   Widget build(BuildContext context) {
-    // controller.textNameEdt = TextEditingController();
-    // controller.textEmailEdt = TextEditingController();
-    // controller.textSubjectEdt = TextEditingController();
-    // controller.textMessageEdt = TextEditingController();
     return Column(
       children: [
         TextField(
-          // controller: controller.textEmailEdt,
+          controller: controller.textEmailEdt,
           decoration: UtilityStyle().inputDecorationDefault(
             'Your Email',
           ),
@@ -72,7 +66,7 @@ class RightContact extends StatelessWidget {
           height: 16,
         ),
         TextField(
-          // controller: controller.textNameEdt,
+          controller: controller.textNameEdt,
           decoration: UtilityStyle().inputDecorationDefault(
             'Your Name',
           ),
@@ -81,7 +75,7 @@ class RightContact extends StatelessWidget {
           height: 16,
         ),
         TextField(
-          // controller: controller.textSubjectEdt,
+          controller: controller.textSubjectEdt,
           decoration: UtilityStyle().inputDecorationDefault(
             'Subject',
           ),
@@ -93,7 +87,7 @@ class RightContact extends StatelessWidget {
           minLines: 15,
           maxLines: 20,
           keyboardType: TextInputType.multiline,
-          // controller: controller.textMessageEdt,
+          controller: controller.textMessageEdt,
           decoration: const InputDecoration(
             fillColor: secondaryLightColor,
             filled: true,
@@ -115,7 +109,7 @@ class RightContact extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            // controller.sendEmail();
+            controller.sendEmail();
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: primaryColor,
