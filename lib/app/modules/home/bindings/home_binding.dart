@@ -14,9 +14,10 @@ class HomeBinding extends Bindings {
     Get.lazyPut<HomeController>(
       () => HomeController(),
     );
-    Get.lazyPut<ContactController>(
-      () => ContactController(),
+    Get.lazyPut<EmailSenderRepository>(
+      () => EmailSenderRepositoryImpl(),
     );
+
     Get.lazyPut<PortfolioController>(
       () => PortfolioController(),
     );
@@ -29,8 +30,8 @@ class HomeBinding extends Bindings {
     Get.lazyPut<CertificationController>(
       () => CertificationController(),
     );
-    Get.lazyPut<EmailSenderRepository>(
-      () => EmailSenderRepositoryImpl(),
+    Get.lazyPut<ContactController>(
+      () => ContactController(),
     );
   }
 }
