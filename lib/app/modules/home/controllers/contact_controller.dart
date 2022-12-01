@@ -58,10 +58,4 @@ class ContactController extends GetxController {
     textSubjectEdt.clear();
     textMessageEdt.clear();
   }
-
-  @override
-  void onInit() {
-    textEmailEdt.text = 'setTTTasdasda';
-    super.onInit();
-  }
 }
