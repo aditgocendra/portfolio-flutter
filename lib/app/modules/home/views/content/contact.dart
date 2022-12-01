@@ -51,7 +51,7 @@ class RightContact extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final controller = Get.find<ContactController>();
+  // final controller = Get.find<ContactController>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -109,7 +109,7 @@ class RightContact extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            controller.sendEmail();
+            // controller.sendEmail();
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: primaryColor,
