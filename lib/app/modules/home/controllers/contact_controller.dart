@@ -1,14 +1,13 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/data/repository/email_sender_repository.dart';
+
+import '../../../data/repository/email_sender_repository.dart';
 
 class ContactController extends GetxController {
-  final TextEditingController textNameEdt = TextEditingController();
-  final TextEditingController textEmailEdt = TextEditingController();
-  final TextEditingController textSubjectEdt = TextEditingController();
-  final TextEditingController textMessageEdt = TextEditingController();
-
-  List<Map<String, dynamic>> listAnimatedProject = [];
+  TextEditingController textNameEdt = TextEditingController();
+  TextEditingController textEmailEdt = TextEditingController();
+  TextEditingController textSubjectEdt = TextEditingController();
+  TextEditingController textMessageEdt = TextEditingController();
 
   // Repository
   final repoEmailSender = Get.find<EmailSenderRepository>();
@@ -47,6 +46,10 @@ class ContactController extends GetxController {
     );
 
     if (result.isLeft) {
+      Get.defaultDialog(
+        title: "Try Again",
+        middleText: result.left.message,
+      );
       return;
     }
 

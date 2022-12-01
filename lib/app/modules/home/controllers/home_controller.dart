@@ -12,6 +12,9 @@ class HomeController extends GetxController
   void onInit() {
     super.onInit();
 
-    tabNavBarController = TabController(length: listMenu.length, vsync: this);
+    tabNavBarController = TabController(
+      length: listMenu.length,
+      vsync: this,
+    );
   }
 }
