@@ -109,7 +109,7 @@ class RightContact extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            // controller.sendEmail();
+            controller.sendEmail();
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: primaryColor,
