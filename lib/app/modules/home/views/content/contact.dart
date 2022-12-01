@@ -66,7 +66,7 @@ class RightContact extends StatelessWidget {
           height: 16,
         ),
         TextField(
-          // controller: controller.textNameEdt,
+          controller: controller.textNameEdt,
           decoration: UtilityStyle().inputDecorationDefault(
             'Your Name',
           ),
@@ -75,7 +75,7 @@ class RightContact extends StatelessWidget {
           height: 16,
         ),
         TextField(
-          // controller: controller.textSubjectEdt,
+          controller: controller.textSubjectEdt,
           decoration: UtilityStyle().inputDecorationDefault(
             'Subject',
           ),
@@ -87,7 +87,7 @@ class RightContact extends StatelessWidget {
           minLines: 15,
           maxLines: 20,
           keyboardType: TextInputType.multiline,
-          // controller: controller.textMessageEdt,
+          controller: controller.textMessageEdt,
           decoration: const InputDecoration(
             fillColor: secondaryLightColor,
             filled: true,
