@@ -91,6 +91,26 @@ const List<Map<String, dynamic>> listProjectAndroid = [
     ]
   },
   {
+    'name_app': 'Futsal Booked Apps',
+    'icon_project': 'assets/logo/android.svg',
+    'description': "Futsal field ordering application",
+    'link_github': 'https://github.com/aditgocendra/futsal-booked-apps',
+    'image_asset': 'assets/images/project/futsal_booked.png',
+    'banner_asset': 'assets/images/banner/banner_futsal_booked.png',
+    'link_publish': null,
+    'tech': [
+      {
+        'logo_tech': 'assets/logo/android_native.svg',
+      },
+      {
+        'logo_tech': 'assets/logo/java.svg',
+      },
+      {
+        'logo_tech': 'assets/logo/firebase.svg',
+      },
+    ]
+  },
+  {
     'name_app': 'Attendance App',
     'icon_project': 'assets/logo/android.svg',
     'description':
