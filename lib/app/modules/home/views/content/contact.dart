@@ -32,7 +32,6 @@ class Contact extends GetView<ContactController> {
             flex: 6,
             child: Container(
               padding: const EdgeInsets.all(32),
-              margin: const EdgeInsets.only(bottom: 40),
               decoration: BoxDecoration(
                 color: secondaryPrimaryColor,
                 borderRadius: BorderRadius.circular(32),
@@ -54,7 +53,9 @@ class RightContact extends StatelessWidget {
   final controller = Get.find<ContactController>();
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
+      shrinkWrap: true,
+      primary: false,
       children: [
         TextField(
           controller: controller.textEmailEdt,
