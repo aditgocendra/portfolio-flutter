@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/app/core/constant/color_constant.dart';
 
 import '../../../data/repository/email_sender_repository.dart';
 
@@ -49,9 +50,20 @@ class ContactController extends GetxController {
       Get.defaultDialog(
         title: "Try Again",
         middleText: result.left.message,
+        buttonColor: primaryColor,
+        confirmTextColor: Colors.white,
+        onConfirm: () => Get.back(),
       );
       return;
     }
+
+    Get.defaultDialog(
+      title: "Success",
+      middleText: 'Your message has been successfully sent',
+      buttonColor: primaryColor,
+      confirmTextColor: Colors.white,
+      onConfirm: () => Get.back(),
+    );
 
     textNameEdt.clear();
     textEmailEdt.clear();
