@@ -325,6 +325,18 @@ const List<Map<String, dynamic>> listCertificated = [
     'image': 'assets/images/certificated/cert_progate.png',
     'pdf': 'assets/pdf/cert_javascript_with_api.pdf'
   },
+  {
+    'theme': 'Code Run Puzzle Warrior 2022',
+    'type': 'training',
+    'image': 'assets/images/certificated/cert_code_run.png',
+    'pdf': 'assets/pdf/cert_code_run.pdf'
+  },
+  {
+    'theme': 'Job Seeker',
+    'type': 'training',
+    'image': 'assets/images/certificated/cert_job_seeker.png',
+    'pdf': 'assets/pdf/cert_job_seeker.pdf'
+  },
 ];
 
 // Description
